@@ -1,0 +1,1202 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Reyo Otero Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Pinyon+Script&family=Jost:wght@300&family=Lexend+Exa:wght@300&family=Michroma&family=Playfair+Display:ital,wght@0,400;1,400&family=Lora:ital,wght@0,400;1,400&family=Josefin+Sans:wght@100..700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Geist:wght@200;300;400;500;600&family=Geist+Mono:wght@200;300;400;500&display=swap">
+<style>
+/* Layout: warm editorial travel-magazine feel. Cream nav, full-bleed night photo hero with big serif type,
+   rounded pastel panels that overlap the section above, a slim ticker, and a grid of labeled photo cards.
+   Serif headlines with mono UI labels, pill controls and rounded photos give it a tech edge.
+   Deliberately single dark theme: black ground, light beige type; nothing animates except the ticker. */
+:root {
+  --bg: #0d0c0b;
+  --fg: #f2ece2;
+  --bg-2: #151311;
+  --cream: #f7f2e4;
+  --cream-2: #1c1a17;
+  --blue: #bcd6e4;
+  --coral: #f2ece2;
+  --green: #f2ece2;
+  --ink: #161513;
+  --grey: #6f6a62;
+  --line: #2c2925;
+  --serif: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --sans: "Geist", "Helvetica Neue", Arial, sans-serif;
+  --mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius: 14px;
+  --gutter: clamp(16px, 3.5vw, 48px);
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+body { background: var(--bg); color: var(--fg); font-family: var(--sans); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { display: block; width: 100%; height: auto; max-width: 100%; }
+.wrap { max-width: 1280px; margin: 0 auto; padding-inline: var(--gutter); }
+:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
+.label { font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: inherit; opacity: .7; display: inline-flex; align-items: center; gap: 10px; }
+.label::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--coral); }
+.chip { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; padding: 8px 14px; border-radius: 999px; border: 1px solid rgba(247,242,228,.35); background: rgba(247,242,228,.12); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+.chip i { width: 7px; height: 7px; border-radius: 50%; background: var(--fg); }
+.dice-wrap { display: inline-flex; align-items: center; padding-inline: 6px; color: var(--cream); }
+.dice-wrap .dice { display: block; }
+.hero .chip { background: none; border: 0; backdrop-filter: none; -webkit-backdrop-filter: none; padding: 0 4px; }   /* plain text labels, no pill */
+.dice-wrap { color: #a98bff; } .dice-wrap .dice circle { fill: #fff; }   /* purple dice, white pips */
+.chips { align-items: center; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.serif { font-family: var(--serif); font-optical-sizing: auto; font-weight: 500; letter-spacing: -.025em; }
+
+/* ---------- Nav ---------- */
+nav.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--bg); border-bottom: 1px solid var(--line); }
+nav.top .wrap { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px; padding-block: 18px; max-width: none; }
+nav.top ul { display: flex; gap: 22px; list-style: none; margin: 0; padding: 0; }
+nav.top a { color: var(--fg); text-decoration: none; font-family: var(--mono); font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; }
+nav.top a.right { border: 1px solid #7552e8; border-radius: 999px; padding: 9px 16px; }
+nav.top a.right:hover { background: #7552e8; color: var(--bg); text-decoration: none; }
+nav.top a:hover { text-decoration: underline; text-underline-offset: 4px; }
+nav.top .name { color: var(--fg); text-decoration: none; text-transform: none; font-family: var(--serif); font-size: clamp(24px, 2.6vw, 34px); font-weight: 500; letter-spacing: -.02em; }
+nav.top .right { justify-self: end; }
+nav.top .nav-tag { font-family: var(--mono); font-size: 12.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--fg); opacity: .8; transition: color .6s ease; }
+nav.top.nav-ff .nav-tag { color: #a0705c; opacity: 1; }
+nav.top .nav-tag, nav.top a.right { font-family: "Jost", var(--sans); font-weight: 300; font-size: 13.5px; }   /* Jost light in the top bar */
+@media (max-width: 720px) { nav.top .nav-tag { display: none; } }
+@media (max-width: 720px) {
+  nav.top ul { display: none; }
+  nav.top .wrap { grid-template-columns: auto 1fr; }
+  nav.top .name { grid-column: 1; }
+}
+
+/* ---------- Intro: who I am + the two projects ---------- */
+.intro { position: relative; z-index: 2; background: #fbf3ea; color: #3c2a31; min-height: calc(100svh - var(--nav-h, 64px)); display: grid; align-items: center; padding-block: clamp(56px, 8vw, 110px);
+  background-image: radial-gradient(ellipse at 85% 10%, rgba(246, 188, 204, .45), transparent 55%), radial-gradient(ellipse at 5% 95%, rgba(246, 188, 204, .3), transparent 50%); }
+.intro-in { text-align: center; padding-top: clamp(28px, 4.5vw, 64px); }   /* intro content sits a little lower */
+.intro .intro-lede { color: #a0705c; font-family: "Josefin Sans", "Helvetica Neue", sans-serif; font-weight: 330; font-size: clamp(17px, 1.5vw, 19px); line-height: 1.75; letter-spacing: .01em; }   /* same as the Off Vintage Ave intro */
+.intro .intro-role, .intro .intro-cue { color: #5a3628; }   /* same brown as the name */
+.intro .intro-role { font-family: "Josefin Sans", "Helvetica Neue", sans-serif; font-weight: 400; font-size: 13.5px; letter-spacing: .22em; }   /* spaced Josefin caps instead of mono */
+.intro .intro-role { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(17px, 1.5vw, 20px); letter-spacing: .01em; text-transform: none; }   /* serif trial */
+.intro .intro-eyebrow { color: #8a5b48; }   /* same brown as the intro paragraph */
+.intro .intro-lede { margin-top: 14px; color: #8a5b48; }   /* paragraph sits close under the role line */
+.intro .intro-role { color: #d9708e; }   /* deeper rose: the stripe pink, readable on cream */
+.intro .intro-name { position: relative; top: clamp(-22px, -1.6vw, -12px); }   /* name nudged up */   /* light brown, like the Off Vintage Ave text */
+nav.top .nav-mono, nav.top.nav-intro .nav-mono { display: none; }   /* no "Ro" monogram on the intro */
+.intro .intro-name { color: #5a3628; }   /* Off Vintage Ave brown, a shade darker */
+.intro-eyebrow { display: inline-block; position: relative; top: clamp(-54px, -4vw, -28px); }   /* sits higher above the name */
+.intro-eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .18em; text-transform: uppercase; color: #c9798f; }
+.intro-name { margin: 14px 0 0; font-family: var(--serif); font-weight: 400; font-size: clamp(64px, 11vw, 168px); line-height: .9; letter-spacing: -.04em; }
+.intro-role { margin: 18px 0 0; font-family: var(--mono); font-size: 13px; letter-spacing: .12em; text-transform: uppercase; color: #8a6a75; }
+.intro-lede { margin: 22px auto 0; max-width: 46ch; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.6; color: #5e4650; }
+.intro-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2vw, 24px); width: min(1000px, calc(100vw - 2 * var(--gutter))); margin: clamp(36px, 5vw, 56px) 0 0 50%; transform: translateX(-50%); text-align: left; }
+.intro-card { position: relative; display: block; border-radius: 22px; overflow: hidden; aspect-ratio: 4 / 3; color: #fff; text-decoration: none; border: 2px solid #f6bccc;
+  box-shadow: 0 22px 50px -28px rgba(201, 121, 143, .7); transition: transform .45s cubic-bezier(.34, 1.56, .64, 1), box-shadow .45s ease; }
+.intro-card img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.intro-card::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(30, 16, 24, .78), rgba(30, 16, 24, 0) 60%); }
+.intro-card .ic-text { position: absolute; left: 24px; right: 24px; bottom: 22px; z-index: 1; display: grid; gap: 2px; }
+.intro-card .ic-num { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; color: #f6bccc; }
+.intro-card b { font-family: var(--serif); font-weight: 500; font-size: clamp(24px, 2.6vw, 34px); letter-spacing: -.02em; line-height: 1.1; }
+.intro-card .ic-text > span:last-child { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .85; }
+@media (hover: hover) { .intro-card:hover { transform: translateY(-4px); box-shadow: 0 30px 60px -28px rgba(201, 121, 143, .85); } .intro-card:hover img { transform: scale(1.05); } }
+.intro-cue { display: inline-flex; gap: 8px; margin-top: clamp(30px, 4vw, 44px); font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #8a6a75; text-decoration: none; }
+.intro-cue:hover { color: #c9798f; }
+/* intro tidy-up: one even rhythm, two type families (serif + Josefin), no nudges */
+.intro .intro-in { padding-top: 0; }
+.intro .intro-eyebrow { position: static; top: auto; font-family: "Josefin Sans", "Helvetica Neue", sans-serif; font-weight: 400; font-size: 12.5px; letter-spacing: .32em; color: #a0705c; }
+.intro .intro-name { position: static; top: auto; margin-top: 18px; }
+.intro .intro-role { margin-top: 26px; font-size: clamp(18px, 1.6vw, 21px); }
+.intro .intro-lede { margin-top: 12px; max-width: 54ch; text-wrap: balance; }
+.intro .intro-cards { margin-top: clamp(44px, 5.5vw, 64px); }
+@media (max-width: 560px) { .intro-cards { grid-template-columns: 1fr; } }
+/* ---------- Hero ---------- */
+/* Hero stays pinned while the next panels slide up over it; the photo pans as you scroll to reveal more of it. */
+.hero-wrap { position: relative; }
+.hero { position: sticky; top: calc(env(safe-area-inset-top, 0px) + var(--nav-h, 64px)); z-index: 1; height: calc(100svh - var(--nav-h, 64px)); min-height: 480px; overflow: hidden; background: #1b1a24; }
+.hero img { position: absolute; left: 50%; top: 0; width: 100%; height: 100%; max-width: none; object-fit: cover; transform: translateX(-50%); will-change: transform; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(10, 10, 20, 0), rgba(10, 10, 20, .28)); }
+.hero-text { position: relative; z-index: 2; will-change: transform, opacity; height: 100%; display: grid; place-content: center; justify-items: center; text-align: center; gap: 20px; padding-inline: var(--gutter); padding-bottom: 48px; color: var(--cream); }
+.hero h1 { margin: 0; font-family: var(--serif); font-weight: 400; letter-spacing: -.035em; line-height: .92; font-size: clamp(56px, 9.5vw, 148px); text-wrap: balance; }
+.hero h1 { font-family: "Michroma", var(--sans); font-weight: 400; text-transform: uppercase; letter-spacing: .14em; line-height: 1.25; font-size: clamp(30px, 5.4vw, 84px); }   /* wide, airy geometric caps like the Canva flyer */
+.hero p .hl { color: #a98bff; }
+.hero p { margin: 0; font-size: clamp(16px, 1.5vw, 19px); max-width: 44ch; }
+.hero p { font-family: "Jost", var(--sans); font-weight: 300; font-size: clamp(17px, 1.5vw, 20px); letter-spacing: .01em; line-height: 1.6; max-width: 44ch; }   /* subtext trial C: Jost light */
+.btn { display: inline-flex; align-items: center; gap: 10px; background: var(--fg); color: var(--bg); text-decoration: none; padding: 14px 26px; border-radius: 999px; font-family: var(--mono); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; }
+.btn:hover { background: var(--cream); }
+.hero .btn { background: none; color: var(--cream); padding: 6px 2px; border-radius: 0; border-bottom: 1px solid #a98bff; }   /* plain link with a purple underline, not a pill */
+.hero .btn:hover { background: none; color: #fff; border-color: #a98bff; }
+
+/* ---------- Rounded panels ---------- */
+.panel { position: relative; z-index: 3; border-radius: clamp(24px, 3vw, 44px) clamp(24px, 3vw, 44px) 0 0; margin-top: calc(clamp(24px, 3vw, 44px) * -1); }
+.panel.blue { background: var(--bg-2); color: var(--fg); border-top: 1px solid var(--line); }
+.panel.coral { background: #1a1029; }   /* near-black purple */
+.panel.cream { background: var(--bg); color: var(--fg); border-top: 1px solid var(--line); }
+
+/* About */
+.about { padding-block: clamp(64px, 9vw, 120px) clamp(72px, 9vw, 120px); text-align: center; }
+.about h2 { margin: 18px auto 0; max-width: 20ch; font-size: clamp(36px, 5vw, 68px); line-height: 1.02; text-wrap: balance; }
+.about h2 { font-family: "Michroma", var(--sans); font-weight: 400; letter-spacing: .02em; font-size: clamp(18px, 2.3vw, 31px); line-height: 1.35; max-width: 28ch; }   /* same wide font as the AICPA ENGAGE title */
+.dots { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 0; margin: 32px auto 0; max-width: 960px; font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; }
+.dots span { display: inline-flex; align-items: center; }
+.about .dots, .about .role, .about .role-k { font-family: "Jost", var(--sans); font-weight: 300; }
+.about .dots { font-size: 15px; } .about .role { font-size: 13.5px; }
+#before-after .built .k { color: #fff; opacity: 1; font-family: "Michroma", var(--sans); font-weight: 400; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; }   /* wide caps, same as the AICPA ENGAGE title */ body .built .v { color: rgba(242, 236, 226, .75); font-family: "Jost", var(--sans); font-weight: 300; letter-spacing: .01em; font-size: clamp(17px, 1.7vw, 22px); }   /* labels white, details soft cream */
+body .row figcaption, body .ba-grid figcaption, body .card figcaption, body .mock figcaption, body .c-hint, #about .dots, #about .role, #about .label, #planning .label, #work .label, #before-after .label { text-transform: none; letter-spacing: .01em; }
+body .row figcaption, body .ba-grid figcaption, body .card figcaption, body .mock figcaption { font-size: 14px; } body .mock figcaption b, body .card figcaption b { text-transform: none; letter-spacing: .01em; }   /* b3 text in sentence case */
+body .mock figcaption, body .card figcaption { opacity: 1; color: rgba(242, 236, 226, .75); } body .mock figcaption b, body .card figcaption b { color: #fff; opacity: 1; }   /* caption titles in white */
+#about .dots, #about .role, #about .role-k { color: var(--fg); opacity: .8; } #about .role-k { opacity: 1; } #about .dots span + span::before { opacity: 1; }   /* one even color for both lines */
+.about .dots span + span::before { content: ""; width: 0; height: 0; background: none; margin-inline: 12px; }   /* thin lines instead of dots */
+.about .sep { display: inline-block; width: 0; margin-inline: 10px; }
+/* slot-machine symbols instead of dots: ace of spades, lucky 7, cherries, four-leaf clover */
+#about .label::before { width: 18px; height: 18px; border-radius: 0; opacity: 1; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg transform='rotate%28-14 11 15%29'%3E%3Crect x='3' y='5' width='14' height='20' rx='2' fill='none' stroke='%23fff' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath transform='translate%286.3 8.6%29 scale%28.3%29' d='M0 5C-3 2.5 -5 .6 -5 -1.8C-5 -3.6 -3.6 -4.8 -2.2 -4.8C-1.2 -4.8 -.4 -4.2 0 -3.4C.4 -4.2 1.2 -4.8 2.2 -4.8C3.6 -4.8 5 -3.6 5 -1.8C5 .6 3 2.5 0 5Z' fill='%23fff'/%3E%3C/g%3E%3Cg transform='rotate%2812 18 16%29'%3E%3Crect x='11' y='6' width='14' height='20' rx='2' fill='%23151311' stroke='%23fff' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath transform='translate%2814.2 9.6%29 scale%28.3%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' fill='%23fff'/%3E%3Cpath transform='translate%2821.8 22.6%29 rotate%28180%29 scale%28.3%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' fill='%23fff'/%3E%3Ctext x='18' y='19.6' text-anchor='middle' font-family='Arial%2Csans-serif' font-size='7.5' fill='%23fff'%3EA%3C/text%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; }
+#planning .label::before { width: 12px; height: 14px; border-radius: 0; opacity: 1; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16'%3E%3Cpath transform='translate%287 8%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' stroke='%23fff' stroke-width='1.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; }
+body .row figure:nth-child(n) figcaption::before, body .ba-grid figure:nth-child(n) figcaption::before { width: 10px; height: 12px; border-radius: 0; opacity: 1; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16'%3E%3Cpath transform='translate%287 8%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' stroke='%23fff' stroke-width='1.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat;  margin-top: 3px; }   /* spade (ace) on the About photo captions */
+#work .label::before { width: 12px; height: 14px; border-radius: 0; opacity: 1; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16'%3E%3Cpath transform='translate%287 8%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' stroke='%23fff' stroke-width='1.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; }
+#before-after .label::before { width: 14px; height: 14px; border-radius: 0; opacity: 1; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 34'%3E%3Cdefs%3E%3Cpath id='h' d='M0 -.6C-1.4 -2.6 -5.6 -4.8 -5.6 -8.8C-5.6 -11.4 -3.2 -12.6 -1.6 -11.6C-.8 -11.1 -.2 -10.4 0 -9.6C.2 -10.4 .8 -11.1 1.6 -11.6C3.2 -12.6 5.6 -11.4 5.6 -8.8C5.6 -4.8 1.4 -2.6 0 -.6Z'/%3E%3Cg id='c'%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%2845%29 translate%280 -1.2%29'/%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%28135%29 translate%280 -1.2%29'/%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%28225%29 translate%280 -1.2%29'/%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%28315%29 translate%280 -1.2%29'/%3E%3C/g%3E%3Cmask id='m'%3E%3Crect x='-5' y='-5' width='50' height='50' fill='%23fff'/%3E%3Cuse href='%23c' fill='%23000'/%3E%3C/mask%3E%3C/defs%3E%3Cg mask='url%28%23m%29' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linejoin='round'%3E%3Cuse href='%23c'/%3E%3Cpath d='M16 15C17.6 21 19.6 26 22.6 31.2' stroke-linecap='round' stroke-width='2.2'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; }
+body figcaption::before { width: 18px; height: 18px; border-radius: 0; opacity: 1; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg transform='rotate%28-14 11 15%29'%3E%3Crect x='3' y='5' width='14' height='20' rx='2' fill='none' stroke='%23fff' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath transform='translate%286.3 8.6%29 scale%28.3%29' d='M0 5C-3 2.5 -5 .6 -5 -1.8C-5 -3.6 -3.6 -4.8 -2.2 -4.8C-1.2 -4.8 -.4 -4.2 0 -3.4C.4 -4.2 1.2 -4.8 2.2 -4.8C3.6 -4.8 5 -3.6 5 -1.8C5 .6 3 2.5 0 5Z' fill='%23fff'/%3E%3C/g%3E%3Cg transform='rotate%2812 18 16%29'%3E%3Crect x='11' y='6' width='14' height='20' rx='2' fill='%23151311' stroke='%23fff' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath transform='translate%2814.2 9.6%29 scale%28.3%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' fill='%23fff'/%3E%3Cpath transform='translate%2821.8 22.6%29 rotate%28180%29 scale%28.3%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' fill='%23fff'/%3E%3Ctext x='18' y='19.6' text-anchor='middle' font-family='Arial%2Csans-serif' font-size='7.5' fill='%23fff'%3EA%3C/text%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; margin-top: 2px; }
+.row figure:nth-child(4n+2) figcaption::before, .ba-grid figure:nth-child(2) figcaption::before { width: 15px; height: 15px; border-radius: 0; opacity: 1; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='10.4' stroke='%23fff' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='12' cy='12' r='5.6' stroke='%23fff' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Crect x='11.1' y='1.4' width='1.8' height='1.8' fill='%23fff' transform='rotate%280 12 12%29'/%3E%3Crect x='11.1' y='1.4' width='1.8' height='1.8' fill='%23fff' transform='rotate%2845 12 12%29'/%3E%3Crect x='11.1' y='1.4' width='1.8' height='1.8' fill='%23fff' transform='rotate%2890 12 12%29'/%3E%3Crect x='11.1' y='1.4' width='1.8' height='1.8' fill='%23fff' transform='rotate%28135 12 12%29'/%3E%3Crect x='11.1' y='1.4' width='1.8' height='1.8' fill='%23fff' transform='rotate%28180 12 12%29'/%3E%3Crect x='11.1' y='1.4' width='1.8' height='1.8' fill='%23fff' transform='rotate%28225 12 12%29'/%3E%3Crect x='11.1' y='1.4' width='1.8' height='1.8' fill='%23fff' transform='rotate%28270 12 12%29'/%3E%3Crect x='11.1' y='1.4' width='1.8' height='1.8' fill='%23fff' transform='rotate%28315 12 12%29'/%3E%3Cpath d='M12 4.4V5.6' stroke='%23fff' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' transform='rotate%2822 12 12%29'/%3E%3Cpath d='M12 4.4V5.6' stroke='%23fff' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' transform='rotate%2867 12 12%29'/%3E%3Cpath d='M12 4.4V5.6' stroke='%23fff' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' transform='rotate%28112 12 12%29'/%3E%3Cpath d='M12 4.4V5.6' stroke='%23fff' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' transform='rotate%28157 12 12%29'/%3E%3Cpath d='M12 4.4V5.6' stroke='%23fff' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' transform='rotate%28202 12 12%29'/%3E%3Cpath d='M12 4.4V5.6' stroke='%23fff' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' transform='rotate%28247 12 12%29'/%3E%3Cpath d='M12 4.4V5.6' stroke='%23fff' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' transform='rotate%28292 12 12%29'/%3E%3Cpath d='M12 4.4V5.6' stroke='%23fff' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round' transform='rotate%28337 12 12%29'/%3E%3Cpath transform='translate%2812 11.8%29 scale%28.82%29' d='M0 -4C-1.3 -2 -3.4 -1 -3.4 .9C-3.4 2.1 -2.5 2.8 -1.6 2.8C-.9 2.8 -.4 2.5 -.2 2.1C-.3 3 -.6 3.7 -1.2 4.2H1.2C.6 3.7 .3 3 .2 2.1C.4 2.5 .9 2.8 1.6 2.8C2.5 2.8 3.4 2.1 3.4 .9C3.4 -1 1.3 -2 0 -4Z' stroke='%23fff' stroke-width='1.1' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; margin-top: 3px; }
+.row figure:nth-child(4n+3) figcaption::before { width: 11px; height: 11px; border-radius: 0; opacity: 1; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='6' cy='14' r='3.6' stroke='%23fff' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='14' cy='14.5' r='3.6' stroke='%23fff' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M6 10.4C7 6 10 3.5 14 2.5M14 10.9c0-3.5-1-6.5 0-8.4' stroke='%23fff' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 2.5c1.6.3 3 1.4 3.5 3-1.9.1-3.2-.9-3.5-3z' stroke='%23fff' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat; margin-top: 3px; }
+.row figure:nth-child(4n+4) figcaption::before { width: 13px; height: 13px; border-radius: 0; opacity: 1; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 34'%3E%3Cdefs%3E%3Cpath id='h' d='M0 -.6C-1.4 -2.6 -5.6 -4.8 -5.6 -8.8C-5.6 -11.4 -3.2 -12.6 -1.6 -11.6C-.8 -11.1 -.2 -10.4 0 -9.6C.2 -10.4 .8 -11.1 1.6 -11.6C3.2 -12.6 5.6 -11.4 5.6 -8.8C5.6 -4.8 1.4 -2.6 0 -.6Z'/%3E%3Cg id='c'%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%2845%29 translate%280 -1.2%29'/%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%28135%29 translate%280 -1.2%29'/%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%28225%29 translate%280 -1.2%29'/%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%28315%29 translate%280 -1.2%29'/%3E%3C/g%3E%3Cmask id='m'%3E%3Crect x='-5' y='-5' width='50' height='50' fill='%23fff'/%3E%3Cuse href='%23c' fill='%23000'/%3E%3C/mask%3E%3C/defs%3E%3Cg mask='url%28%23m%29' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linejoin='round'%3E%3Cuse href='%23c'/%3E%3Cpath d='M16 15C17.6 21 19.6 26 22.6 31.2' stroke-linecap='round' stroke-width='2.2'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; margin-top: 3px; }
+#work .label::before, body .ba-grid figure:nth-child(2) figcaption::before { width: 18px; height: 18px; border-radius: 0; opacity: 1; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg transform='rotate%28-14 11 15%29'%3E%3Crect x='3' y='5' width='14' height='20' rx='2' fill='none' stroke='%23fff' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath transform='translate%286.3 8.6%29 scale%28.3%29' d='M0 5C-3 2.5 -5 .6 -5 -1.8C-5 -3.6 -3.6 -4.8 -2.2 -4.8C-1.2 -4.8 -.4 -4.2 0 -3.4C.4 -4.2 1.2 -4.8 2.2 -4.8C3.6 -4.8 5 -3.6 5 -1.8C5 .6 3 2.5 0 5Z' fill='%23fff'/%3E%3C/g%3E%3Cg transform='rotate%2812 18 16%29'%3E%3Crect x='11' y='6' width='14' height='20' rx='2' fill='%23151311' stroke='%23fff' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath transform='translate%2814.2 9.6%29 scale%28.3%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' fill='%23fff'/%3E%3Cpath transform='translate%2821.8 22.6%29 rotate%28180%29 scale%28.3%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' fill='%23fff'/%3E%3Ctext x='18' y='19.6' text-anchor='middle' font-family='Arial%2Csans-serif' font-size='7.5' fill='%23fff'%3EA%3C/text%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat; }   /* ace card here too */
+body .ba-grid figcaption, body .ba-grid figcaption b, body .row figcaption, body .card figcaption, body .mock figcaption, body .mock figcaption b, body .card figcaption b, body .c-hint { font-family: "Jost", var(--sans); font-weight: 300; }   /* conference captions in Jost light */
+body .prep-head p, #about .label, #planning .label, #work .label, #before-after .label, body .built .k, body .c-tag { font-family: "Jost", var(--sans); font-weight: 300; }   /* Jost light across the conference part */
+body .card h3 { font-family: "Michroma", var(--sans); font-weight: 400; letter-spacing: .1em; font-size: clamp(15px, 1.4vw, 19px); }   /* card titles in the title font */
+.about .role-k { border: 0; padding: 0; margin-right: 6px; border-radius: 0; font-weight: 600; }   /* no pill: bold label with a colon */   /* Jost light, like the hero subtext */
+.dots span + span::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: currentColor; margin-inline: 14px; opacity: .6; }
+.row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); margin-top: clamp(48px, 6vw, 80px); text-align: left; }
+.row .shot img { aspect-ratio: 4 / 5; object-fit: cover; }
+@media (max-width: 600px) { .row { grid-template-columns: 1fr; } }
+
+figure { margin: 0; display: grid; gap: 10px; min-width: 0; }
+.shot { display: block; width: 100%; padding: 0; border: 0; background: var(--cream-2); cursor: zoom-in; border-radius: var(--radius); overflow: hidden; }
+/* hover "bubble": photos gently pop toward the viewer with a soft springy bounce */
+.shot { position: relative; transition: transform .45s cubic-bezier(.34, 1.56, .64, 1), box-shadow .45s ease; will-change: transform; }
+@media (hover: hover) { .shot:hover, .shot:focus-visible { transform: scale(1.045); box-shadow: 0 22px 44px -14px rgba(0, 0, 0, .7); z-index: 2; } .shot[data-i="m-backdrop-cut"]:hover { box-shadow: none; } }
+@media (prefers-reduced-motion: reduce) { .shot { transition: none; } .shot:hover { transform: none; } }
+figcaption { display: grid; grid-template-columns: auto 1fr; gap: 10px; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; line-height: 1.5; }
+figcaption::before { content: ""; width: 5px; height: 5px; border-radius: 50%; background: var(--coral); margin-top: 6px; }
+
+/* ---------- Ticker ---------- */
+.ticker { overflow: hidden; padding-block: 16px; color: var(--fg); }
+.panel.ticker { border-radius: 0; margin-top: 0; }
+.ticker + .panel { margin-top: 0; border-radius: 0; border-top: 0; }
+.ticker .track { display: flex; width: max-content; animation: scroll 40s linear infinite; }
+.ticker span { font-family: var(--serif); font-size: clamp(24px, 2.6vw, 36px); letter-spacing: -.02em; white-space: nowrap; padding-inline: 22px; display: inline-flex; align-items: center; gap: 44px; }
+.ticker span::after { content: none; }   /* no dots between words */
+.ticker span { padding-inline: 34px; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+
+/* ---------- The work: list + framed photo ---------- */
+.work { padding-block: clamp(72px, 9vw, 120px); }
+.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(32px, 4vw, 56px) clamp(16px, 2vw, 28px); margin-top: 24px; }
+.card { display: grid; gap: 14px; align-content: start; }
+.card h3 { margin: 0; font-family: var(--sans); font-weight: 300; font-size: clamp(20px, 1.8vw, 26px); line-height: 1.1; letter-spacing: .16em; text-transform: uppercase; }
+.card .shot img { aspect-ratio: 4 / 5; object-fit: cover; }
+.card figcaption { display: block; text-align: left; max-width: 42ch; font-family: var(--mono); font-size: 11.5px; line-height: 1.7; letter-spacing: .06em; text-transform: uppercase; color: var(--fg); opacity: .72; font-weight: 200; }
+.card figcaption::before { content: none; }
+.card-wide { grid-column: 1 / -1; }
+.card-wide .shot { max-width: 1000px; }   /* keep it at or under the photo's real size so it stays sharp */
+.card-wide .shot img { aspect-ratio: auto; height: auto; }
+.card-wide figcaption { max-width: 70ch; }
+
+.card figcaption b { display: block; font-weight: 500; opacity: 1; color: var(--fg); margin-bottom: 2px; }
+@media (max-width: 900px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .cards { grid-template-columns: 1fr; } }
+
+/* ---------- Before the show (mockups) ---------- */
+.prep { padding-block: clamp(72px, 9vw, 120px); }
+.prep-head { max-width: 720px; margin-bottom: clamp(36px, 5vw, 56px); }
+.prep-head h2 { margin: 14px 0 0; font-size: clamp(34px, 4.6vw, 60px); line-height: 1.04; text-wrap: balance; }
+.prep-head h2 { font-family: "Michroma", var(--sans); font-weight: 400; letter-spacing: .02em; font-size: clamp(22px, 3vw, 40px); line-height: 1.35; }   /* same wide font as the AICPA ENGAGE title */
+.prep-head p { margin: 16px 0 0; max-width: 52ch; opacity: .8; }
+.mocks { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(28px, 3vw, 44px) clamp(14px, 1.6vw, 22px); }
+.mock { display: grid; gap: 12px; align-content: start; }
+.t-hero { grid-column: span 4; } .t-side { grid-column: span 2; }
+.t-wide { grid-column: span 4; } .t-ipad { grid-column: span 2; align-self: end; }
+.t-third { grid-column: span 2; }
+.t-half { grid-column: span 3; align-self: end; }
+.shot.paper { background: transparent; padding: 0; }   /* no frame: each mockup shows at its own shape */
+.shot.paper img { width: 100%; height: auto; }
+.t-ipad .shot, .t-half .shot[data-i="m-ipad"] { width: min(100%, 300px); }
+.t-half .shot[data-i="m-floorplan"] { width: min(100%, 460px); }
+.t-half .shot[data-i="m-merch"] { width: min(100%, 460px); }   /* same size as the tee proof beside it: before & after */
+.t-hero .shot { width: min(100%, 640px); }
+.shot[data-i="m-table"] { width: min(100%, 250px); }
+.shot[data-i="m-tshirt-proof"] { width: min(100%, 460px); }
+.shot[data-i="m-shotglass"] { width: min(100%, 440px); }   /* narrow portrait crop: keep it from towering */
+.shot[data-i="m-backdrop-cut"] { border-radius: 0; overflow: visible; }   /* keep the floor's sharp corners, no rounded clipping */
+.t-hero, .t-side { align-self: end; }   /* keep the tall slide from towering over its row */
+.mock figcaption { display: block; font-family: var(--mono); font-size: 11.5px; line-height: 1.7; letter-spacing: .06em; text-transform: uppercase; font-weight: 200; opacity: .78; max-width: 46ch; }
+.mock figcaption::before { content: none; }
+.mock figcaption b { display: block; font-family: var(--sans); font-weight: 300; font-size: clamp(16px, 1.4vw, 19px); letter-spacing: .16em; opacity: 1; margin-bottom: 4px; }
+@media (max-width: 900px) {
+  .mocks { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .t-hero, .t-wide { grid-column: span 2; }
+  .t-side, .t-ipad, .t-third, .t-half { grid-column: span 1; }
+}
+@media (max-width: 520px) {
+  .mocks { grid-template-columns: 1fr; }
+  .t-hero, .t-wide, .t-side, .t-ipad, .t-third, .t-half { grid-column: span 1; }
+}
+
+/* ---------- Before / After ---------- */
+.ba { padding-block: clamp(64px, 8vw, 110px) clamp(24px, 3vw, 44px); }   /* bottom = the panel overlap, so the pink stripes start right at the last line */
+.ba .built { margin-bottom: 0; }
+.ba-head { text-align: center; margin-bottom: clamp(36px, 5vw, 64px); }
+.ba-head h2 { margin: 14px auto 0; font-size: clamp(36px, 5vw, 68px); line-height: 1.02; max-width: 18ch; text-wrap: balance; }
+.ba-head h2 { font-family: "Michroma", var(--sans); font-weight: 400; letter-spacing: .02em; font-size: clamp(22px, 3vw, 40px); line-height: 1.35; max-width: 24ch; }   /* same wide font as the AICPA ENGAGE title */
+/* Columns sized to each photo's shape (3:4 portrait, ~1.2:1 landscape) so both show uncropped at the same height. */
+/* Before / after drag slider */
+.compare { position: relative; max-width: 1000px; margin: 0 auto; aspect-ratio: 6 / 5; border-radius: var(--radius); overflow: hidden; user-select: none; touch-action: pan-y; background: var(--cream-2); }
+.compare .c-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.compare .c-before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.c-line { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: var(--fg); box-shadow: 0 0 18px rgba(143, 110, 255, .9); pointer-events: none; }
+.c-knob { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+  background: rgba(13, 12, 11, .55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1.5px solid var(--fg); color: var(--fg); font-size: 22px;
+  box-shadow: 0 0 24px rgba(143, 110, 255, .55); transition: transform .3s cubic-bezier(.34, 1.56, .64, 1); }
+.compare:hover .c-knob, .c-range:focus-visible ~ .c-line .c-knob { transform: translate(-50%, -50%) scale(1.12); }
+.c-tag { position: absolute; top: 16px; padding: 6px 12px; border-radius: 999px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .12em; text-transform: uppercase;
+  background: rgba(13, 12, 11, .55); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--fg); pointer-events: none; }
+.c-tag-b { left: 16px; } .c-tag-a { right: 16px; }
+.c-range { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: ew-resize; -webkit-appearance: none; appearance: none; }
+.c-range:focus-visible + * { outline: none; }
+.c-hint { text-align: center; margin: 16px auto 0; font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; text-transform: uppercase; font-weight: 200; opacity: .75; }
+.ba-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(14px, 2vw, 28px); align-items: start; }
+.ba-grid .shot img { height: auto; }   /* keeps each photo's own shape from its width/height attributes */
+.ba-grid h3 { margin: 0; font-family: var(--serif); font-weight: 500; letter-spacing: -.03em; font-size: clamp(30px, 3.4vw, 46px); line-height: 1; }
+.ba-grid h3 { font-family: "Michroma", var(--sans); font-weight: 400; letter-spacing: .08em; text-transform: uppercase; font-size: clamp(13px, 1.35vw, 18px); line-height: 1.2; }   /* same wide font as the AICPA ENGAGE title */
+@media (max-width: 640px) { .ba-grid { grid-template-columns: 1fr; } }
+
+/* What I built */
+.built { list-style: none; margin: clamp(56px, 7vw, 88px) auto 0; padding: 0; max-width: 980px; border-top: 1px solid var(--line); }
+.built li { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 20px; align-items: baseline; padding-block: 20px; border-bottom: 1px solid var(--line); }
+.built .k { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .75; }
+.built .v { font-family: var(--serif); font-weight: 500; letter-spacing: -.02em; font-size: clamp(22px, 2.4vw, 32px); line-height: 1.15; }
+.built .v { font-family: "Michroma", var(--sans); font-weight: 400; letter-spacing: .02em; font-size: clamp(15px, 1.6vw, 21px); line-height: 1.4; }   /* same wide font as the AICPA ENGAGE title */
+@media (max-width: 560px) { .built li { grid-template-columns: 1fr; gap: 2px; } }
+
+/* ---------- Footer ---------- */
+footer { padding-block: clamp(80px, 10vw, 140px) 40px; text-align: center; }
+footer h2 { margin: 0 auto; font-size: clamp(54px, 9vw, 140px); line-height: .92; letter-spacing: -.04em; max-width: 12ch; text-wrap: balance; }
+footer p { margin: 24px auto 0; max-width: 48ch; font-size: 17px; }
+.contact { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px; margin-top: 36px; }
+.email-pill { display: inline-flex; align-items: center; gap: 4px; padding: 6px 6px 6px 20px; border: 1px solid rgba(242, 236, 226, .35); border-radius: 999px; }
+.email-text { font-family: var(--mono); font-size: 14px; letter-spacing: .04em; user-select: all; }
+.copy-btn, .cta-btn { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; border-radius: 999px; cursor: pointer; text-decoration: none;
+  transition: background .3s, color .3s, box-shadow .3s, transform .35s cubic-bezier(.34, 1.56, .64, 1); }
+.copy-btn { border: 0; padding: 10px 16px; background: var(--fg); color: var(--bg); }
+.cta-btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border: 1px solid var(--fg); color: var(--fg); }
+.copy-btn:hover, .cta-btn:hover { box-shadow: 0 0 22px rgba(143, 110, 255, .6); transform: translateY(-2px); }
+.cta-btn:hover { background: var(--fg); color: var(--bg); }
+.legal { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 80px; font-family: var(--mono); font-size: 12px; letter-spacing: .1em; text-transform: uppercase; opacity: .7; }
+
+nav.top ul a { white-space: nowrap; }
+/* top bar fades to the soft pink theme while you're in the Off Vintage Ave section */
+nav.top, nav.top a, nav.top .name { transition: background-color .6s ease, color .6s ease, border-color .6s ease; }
+nav.top.nav-ff { background: #fdf8f3; border-bottom-color: #f6d6df; }
+nav.top.nav-ff a, nav.top.nav-ff .name { color: #5c4650; }
+nav.top.nav-ff .name { color: #6e4433; }
+nav.top.nav-ova .name { font-family: "Pinyon Script", cursive; font-weight: 400; letter-spacing: 0; font-size: clamp(30px, 3.2vw, 42px); }   /* name turns script once you reach Off Vintage Ave */
+nav.top .name { transition: color .6s ease, opacity .5s ease; }
+nav.top.nav-intro .name { opacity: 0; pointer-events: none; }   /* big name on the intro already says it; top-bar name fades in once you scroll past */
+nav.top .name, nav.top .nav-mono { grid-column: 2; grid-row: 1; justify-self: center; }
+nav.top .nav-mono { font-family: var(--serif); font-weight: 500; letter-spacing: -.02em; font-size: clamp(26px, 2.8vw, 36px); line-height: 1; color: #eea6ba; opacity: 0; pointer-events: none; transition: opacity .5s ease; }
+nav.top.nav-intro .nav-mono { opacity: 1; }   /* little script monogram fills the middle while the big name is on screen */
+@media (max-width: 720px) { nav.top .name, nav.top .nav-mono { grid-column: 1; justify-self: start; } }
+nav.top.nav-ff a.right { border-color: #a0705c; color: #a0705c; }
+nav.top.nav-ff a.right:hover { background: #f5bccc; border-color: #f5bccc; color: #6e4433; }
+nav.top.nav-ff .progress { background: #f5bccc; box-shadow: none; }
+nav.top.nav-ff { border-bottom-color: #f5bccc; } nav.top.nav-ff .progress { background: #f5bccc; }   /* pink line in Off Vintage Ave */
+nav.top.nav-intro { border-bottom-color: #8a5b48; } nav.top.nav-intro .progress { background: #8a5b48; }   /* light-but-deeper brown line on the intro */
+/* Off Vintage Ave slides up over the event-planning section like a curtain */
+#before-after.pin { position: sticky; z-index: 2; }
+#before-after.pin::after { content: ""; position: absolute; inset: 0; background: #0d0c0b; opacity: var(--dim, 0); pointer-events: none; border-radius: inherit; }
+.ff { z-index: 4; box-shadow: 0 -30px 60px -20px rgba(0, 0, 0, .45); }
+.panel.ff { border-radius: 0; }   /* square top edge: no dark corners peeking through */
+/* ---------- Project 02: Off Vintage Ave (soft pink, cream and white) ---------- */
+.ff { --ff-cream: #fdf8f3; --ff-blush: #fbe9ee; --ff-pink: #f6d6df; --ff-rose: #ebbcca; --ff-mauve: #c9919f; --ff-ink: #5c4650; --ff-soft: #8d7480;
+  background: var(--ff-cream); color: var(--ff-ink); overflow: hidden; }
+.ff-stripes { height: clamp(200px, 24vw, 320px); background: repeating-linear-gradient(90deg, #f5bccc 0 30px, #f9e9d4 30px 60px);   /* stripe options: 1.2 #f5bccc/#f9e9d4 · 1 #f0afbe/#f9e9d4 · 2 #f29bb4/#fde0e8 · 3 #f5c6d0/#fdf1f3 · 4 #f6b5c7/#fbf0e3 · 5 #f9cdd8/#fbf0e3 */ border-bottom: 1px solid var(--ff-rose); }
+.ff-wrap { padding-block: 0 clamp(80px, 9vw, 130px); }
+.ff-head { position: relative; margin: calc(clamp(60px, 8vw, 100px) * -1) auto 0; max-width: 760px; text-align: center; background: #fffdfb; border: 1px solid var(--ff-pink);
+  border-radius: 28px; padding: clamp(28px, 4vw, 48px) clamp(20px, 4vw, 52px); box-shadow: 0 24px 60px -30px rgba(201, 145, 159, .55); }
+.ff-eyebrow { font-family: var(--mono); font-size: 11.5px; letter-spacing: .16em; text-transform: uppercase; color: var(--ff-mauve); }
+.ff-title { margin: 12px 0 0; font-family: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif; font-style: italic; font-weight: 400; font-size: clamp(48px, 8vw, 104px); line-height: .95; letter-spacing: -.02em; color: var(--ff-ink); }
+.ff-kicker { margin: 22px 0 0; font-family: "Bodoni Moda", Georgia, serif; font-size: clamp(17px, 1.8vw, 22px); color: var(--ff-mauve); }
+.ff-intro { margin: 22px auto 0; max-width: 56ch; font-size: 16px; line-height: 1.7; color: var(--ff-soft); }
+.ff-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 24px 0 0; }
+.ff-chips span { padding: 6px 14px; border-radius: 999px; background: var(--ff-blush); border: 1px solid var(--ff-pink); font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--ff-ink); }
+.ff-chapter { margin-top: clamp(64px, 8vw, 110px); }
+.ff-chead { display: grid; grid-template-columns: auto 1fr; column-gap: 18px; align-items: baseline; margin-bottom: 26px; padding-bottom: 14px; border-bottom: 1px solid var(--ff-pink); }
+.ff-num { grid-row: span 2; font-family: "Bodoni Moda", Georgia, serif; font-style: italic; font-size: clamp(34px, 4vw, 52px); color: var(--ff-rose); line-height: 1; }
+.ff-chead h3 { margin: 0; font-family: "Bodoni Moda", Georgia, serif; font-weight: 400; font-size: clamp(26px, 3vw, 38px); color: #6e4433; }
+.ff-chead p { margin: 2px 0 0; font-size: 14.5px; color: var(--ff-soft); }
+.ff-grid { display: grid; gap: clamp(22px, 2.6vw, 34px) clamp(14px, 1.8vw, 22px); align-items: start; }
+.ff-grid.g4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.ff-grid.g3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.ff-grid.g2 { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 760px; margin-inline: auto; }
+.ff-grid.g-space { grid-template-columns: 1.5fr 1fr 1fr; }
+.ff-grid.g-promo { grid-template-columns: repeat(2, auto); justify-content: center; }
+.ff-more { grid-column: span 2; align-self: stretch; display: grid; place-content: center; text-align: center; min-height: 200px; }
+.ff-more p { margin: 0; font-family: "Bodoni Moda", Georgia, serif; font-style: italic; font-size: clamp(28px, 3.4vw, 46px); color: #ec9ab1; }
+.ff-more span { margin-top: 6px; font-family: var(--mono); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: #a0705c; }
+.ff .ff-wide .shot img { aspect-ratio: 4 / 3; }
+.ff-grid .ff-span2 { grid-column: span 2; }
+.ff-stripes-2 { margin-top: clamp(40px, 6vw, 80px); border-top: 1px solid var(--ff-rose); }
+@media (max-width: 560px) { .ff-grid.g3 .ff-wide { grid-column: span 2; } }
+/* ---------- My first pop-up: its own after-dark, satin-and-script vibe ---------- */
+.ff-stripes-2 { background: #f8f0e3 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='88' viewBox='0 0 64 88'%3E%3Crect width='64' height='88' fill='%23f8f0e3'/%3E%3Cpath d='M32 0 64 44 32 88 0 44Z' fill='%23f7a9b6'/%3E%3Cg stroke='%23f28da0' stroke-width='1.1' stroke-dasharray='2.5 2.5' fill='none'%3E%3Cpath d='M-16 0 48 88M16 0 80 88M80 0 16 88M48 0 -16 88'/%3E%3C/g%3E%3Cg stroke='%23e9573d' stroke-width='1.5' fill='none'%3E%3Cpath d='M0 0 64 88M64 0 0 88'/%3E%3C/g%3E%3C/svg%3E") 0 0 / 64px 88px repeat; border-bottom: 1px solid #f28da0; }
+.ff-first .ff-head { background: #fbf6ee; border: 0; box-shadow: 0 20px 44px -26px rgba(185, 141, 116, .4); }
+.ff-first .stitch { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }   /* thin, widely spaced light-brown stitching like the banner */
+.ff-first .stitch rect { x: 1px; y: 1px; width: calc(100% - 2px); height: calc(100% - 2px); rx: 27px; fill: none; stroke: #b98d74; stroke-width: 1.2; stroke-dasharray: 5 12; stroke-linecap: round; }
+.ff-first .ff-eyebrow { color: #f39aab; }
+.ff-first .ff-title { color: #e9573d; }
+.ff-script .ff-eyebrow { color: #a0705c; position: relative; top: -9px; }
+.ff-script .ff-kicker { color: #a0705c; }
+.ff-script .ff-chips span { background: #fcdfe7; border-color: #f5bccc; color: #a0705c; }   /* soft stripe-pink pills */
+.ff-intro, .intro-lede { text-wrap: pretty; }   /* no lonely last word */
+.ff .g-promo .ff-fig figcaption { max-width: 36ch; text-wrap: balance; }
+.ff-grid.g-promo { column-gap: clamp(36px, 6vw, 96px); }   /* more space between the flyer and the story */
+.ff-grid.g2 { column-gap: clamp(28px, 4.5vw, 64px); max-width: 820px; }   /* two-photo rows breathe a bit more */   /* promo captions wrap to two even lines */
+.ff-script .ff-intro { color: #a0705c; font-family: "Josefin Sans", "Helvetica Neue", sans-serif; font-weight: 330; font-size: 17px; line-height: 1.75; letter-spacing: .01em; }
+.ff-script .ff-head { border-color: #f5bccc; box-shadow: 0 50px 110px -40px rgba(214, 178, 132, .8), 0 0 28px rgba(214, 178, 132, .2); }
+.ff-script .ff-title { color: #6e4433; font-family: "Pinyon Script", "Bodoni Moda", cursive; font-style: normal; font-size: clamp(56px, 9vw, 116px); letter-spacing: 0; line-height: 1.05; }
+.ff-first .ff-kicker { color: #9f7660; margin-top: 32px; }
+.ff-first .ff-intro { color: #b98d74; font-family: "Lora", Georgia, serif; font-size: 16.5px; }   /* same font as the chapter subtitles */
+.ff-first .ff-chead { border-bottom: 1px dashed #f7a9b6; }
+.ff-first .ff-chead h3 { color: #e9573d; }
+.ff-first .ff-fig figcaption { color: #b98d74; font-family: "Lora", Georgia, serif; font-size: 14.5px; }
+.ff-first .shot, .ff-first .vshot { border-color: #b98d74; }
+.ff-first .ff-fig figcaption b { color: #e9573d; }
+.ff-first .ff-chead p { color: #b98d74; font-family: "Lora", Georgia, serif; }
+.ff-first .ff-num { color: #f7a9b6; min-width: 2.6em; }
+.ff-script .ff-num { color: #f5bccc; font-family: "Pinyon Script", cursive; font-style: normal; font-size: clamp(38px, 4.4vw, 56px); }
+.ff-first .shot { background: #fdeef3; border: 2px solid #f7cfdc; border-radius: 26px; }
+.ff-first .shot img { border-radius: 18px; }
+.ff-script .ff-fig figcaption { color: #a0705c; font-family: "Josefin Sans", "Helvetica Neue", sans-serif; font-weight: 330; font-size: 14.5px; letter-spacing: .01em; }   /* captions match the intro paragraph */
+.ff-script .ff-chead p { color: #a0705c; font-family: "Josefin Sans", "Helvetica Neue", sans-serif; font-weight: 330; letter-spacing: .01em; }   /* same font as the intro paragraph */
+.ff-script .ff-fig figcaption b { font-family: "Pinyon Script", cursive; font-style: normal; font-weight: 400; font-size: 26px; line-height: 1.1; color: #ec9ab1; }
+.ff .vshot { background: #fff; padding: 5px; border-radius: 18px; border: 2px solid var(--ff-pink); box-shadow: 0 14px 34px -22px rgba(201, 145, 159, .7); overflow: hidden; }
+.ff .vshot video { display: block; width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 13px; background: #f3e6e9; }
+.ff .vshot { position: relative; cursor: pointer; }
+.ff .vshot::after { content: "\25B6"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 54px; height: 54px; border-radius: 50%; display: grid; place-items: center; padding-left: 4px;
+  background: rgba(248, 205, 216, .92); color: #fff; font-size: 18px; box-shadow: 0 8px 24px -10px rgba(110, 68, 51, .5); transition: opacity .3s ease; pointer-events: none; }
+.ff .vshot.playing::after { opacity: 0; }
+.ff-fig { margin: 0; display: grid; gap: 12px; align-content: start; }
+.ff .shot { background: #fff; padding: 5px; border-radius: 18px; box-shadow: 0 14px 34px -22px rgba(201, 145, 159, .7); border: 2px solid var(--ff-pink); }
+.ff .shot img { border-radius: 14px; aspect-ratio: 3 / 4; object-fit: cover; }
+.ff .g-promo .shot { padding: 0; background: transparent; border: 0; width: fit-content; }   /* no white frame on the flyer and story */
+.ff .g-promo .shot img { aspect-ratio: auto; height: clamp(300px, 36vw, 520px); width: auto; object-fit: contain; border-radius: 16px; display: block; }
+@media (hover: hover) { .ff .shot:hover { box-shadow: 0 26px 50px -22px rgba(201, 145, 159, .85); } }
+.ff-fig figcaption { display: block; font-size: 13.5px; line-height: 1.55; color: var(--ff-soft); text-transform: none; letter-spacing: 0; font-family: var(--sans); }
+.ff-fig figcaption::before { content: none; }
+.ff-fig figcaption b { display: block; margin-bottom: 2px; font-family: "Bodoni Moda", Georgia, serif; font-style: italic; font-weight: 500; font-size: 19px; color: #d27f9a; }
+@media (max-width: 900px) { .ff-grid.g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ff-grid.g-space { grid-template-columns: 1fr 1fr; } .ff-grid.g-space .ff-big { grid-column: span 2; } }
+@media (max-width: 560px) { .ff-grid.g3 { grid-template-columns: 1fr 1fr; } .ff-grid.g-promo { grid-template-columns: 1fr 1fr; } .ff .g-promo .shot img { width: 100%; height: auto; } }
+
+/* footer picks up the Off Vintage Ave cream and pink */
+footer#contact { background: #fdf8f3; color: #5c4650; border-top: 1px solid #f5bccc; z-index: 4; }
+footer#contact .email-pill { border-color: #5c4650; }
+footer#contact .copy-btn { background: #f5bccc; color: #5c4650; }
+footer#contact .cta-btn { border-color: #5c4650; color: #5c4650; }
+footer#contact .cta-btn:hover { background: #f5bccc; color: #5c4650; }
+footer#contact .copy-btn:hover, footer#contact .cta-btn:hover { box-shadow: 0 0 22px rgba(201, 145, 159, .6); }
+footer#contact p { color: #a0705c; }
+footer#contact .email-pill { border-color: #a0705c; color: #a0705c;; transition: background .3s, border-color .3s, color .3s; }
+footer#contact .email-pill:hover { background: rgba(214, 184, 162, .7); border-color: transparent; color: #d9708e; box-shadow: 0 0 22px rgba(201, 145, 159, .6); transform: translateY(-2px); }   /* soft brown pill, pink words: like the video play buttons */
+footer#contact .copy-btn { background: #f5bccc; color: #6e4433; }
+footer#contact .cta-btn { border-color: #a0705c; color: #a0705c; }
+footer#contact .cta-btn:hover, footer#contact .copy-btn:hover { background: #f5bccc; border-color: #f5bccc; color: #6e4433; }   /* same colorway as the top bar's Get in touch */
+footer#contact .legal { color: #000; opacity: 1; }
+footer#contact h2 { color: #f5bccc; }
+footer#contact h2:hover { color: #f5bccc; text-shadow: 0 0 18px rgba(235, 188, 202, .9), 0 0 42px rgba(201, 145, 159, .6); }
+footer#contact .email-pill:hover { background: #fbe1e9; border-color: #f5bccc; color: #6e4433; }   /* pill turns soft pink on hover */
+footer#contact .copy-btn { background: #8a5b48; color: #fdf8f3; }   /* Copy is brown until you hover */
+footer#contact .email-pill:hover .copy-btn { background: #8a5b48; color: #fdf8f3; } footer#contact .copy-btn:hover { background: #6e4433; color: #fdf8f3; }   /* Copy stays brown on hover */
+footer#contact .copy-btn { display: inline-flex; align-items: center; line-height: 1; padding: 8px 12px 6px; letter-spacing: .1em; font-size: 11.5px; }   /* slimmer Copy pill; Josefin sits high, so a touch more top padding centers it */
+footer#contact p, footer#contact .email-text, footer#contact .copy-btn, footer#contact .cta-btn { font-family: "Josefin Sans", "Helvetica Neue", sans-serif; }
+footer#contact p { font-weight: 330; font-size: 17.5px; line-height: 1.75; letter-spacing: .01em; }
+footer#contact .email-text { font-weight: 400; font-size: 15px; letter-spacing: .03em; } footer#contact .copy-btn, footer#contact .cta-btn { font-weight: 400; letter-spacing: .16em; }   /* same font as the Off Vintage Ave intro */
+footer#contact .email-pill, footer#contact .cta-btn { border-color: #f5bccc; color: #6e4433; box-shadow: none; transform: none; }
+footer#contact .email-pill:hover, footer#contact .cta-btn:hover { background: #f5bccc; border-color: #f5bccc; color: #6e4433; box-shadow: 0 0 16px rgba(245, 188, 204, .55); }   /* pink outline, brown text; pink fill with a soft glow on hover */
+footer#contact h2.glow { color: #f6c7d3; text-shadow: 0 0 calc(12px * var(--g, 0)) rgba(235, 188, 202, calc(.55 * var(--g, 0))), 0 0 calc(28px * var(--g, 0)) rgba(201, 145, 159, calc(.22 * var(--g, 0))); transition: none; }   /* glow builds up as you scroll toward it */
+@keyframes wave { 0%, 100% { transform: translateY(0); } 45% { transform: translateY(-.12em); } }
+footer#contact h2 .ch { display: inline-block; }
+footer#contact h2.hop .ch { animation: wave .55s ease-in-out both; animation-delay: calc(var(--c) * 45ms); }   /* letters rise and fall one after another, like piano keys */
+@media (prefers-reduced-motion: reduce) { footer#contact h2.hop .ch { animation: none; } }
+/* ---------- Motion & interaction layer ---------- */
+.progress { position: absolute; left: 0; bottom: -1px; height: 2px; width: 100%; transform-origin: 0 50%; transform: scaleX(var(--p, 0));
+  background: linear-gradient(90deg, #6d4dff, #c18cff); box-shadow: 0 0 10px rgba(143, 110, 255, .8); pointer-events: none; }
+.role { margin: 14px auto 0; max-width: 900px; text-align: center; font-family: var(--mono); font-size: 12px; letter-spacing: .08em; text-transform: uppercase; font-weight: 200; opacity: .8; }
+.role-k { display: inline-block; margin-right: 10px; padding: 3px 10px; border: 1px solid rgba(242, 236, 226, .35); border-radius: 999px; font-weight: 400; }
+/* photos rise into place as they scroll into view (only ones that start off-screen) */
+.reveal-pending { opacity: 0; transform: translateY(26px); }
+.reveal-in { opacity: 1; transform: none; transition: opacity .8s ease, transform .9s cubic-bezier(.2, .8, .2, 1); transition-delay: var(--d, 0s); }
+/* headlines fade in word by word */
+.split .w { display: inline-block; }
+.split.split-pending .w { opacity: 0; transform: translateY(.35em); filter: blur(4px); }
+.split.split-in .w { opacity: 1; transform: none; filter: none; transition: opacity .6s ease, transform .7s cubic-bezier(.2, .8, .2, 1), filter .6s ease; transition-delay: calc(var(--i) * 55ms); }
+/* footer headline glows like the booth's LED towers */
+footer h2 { transition: text-shadow .5s ease, color .5s ease; cursor: default; }
+footer h2:hover { color: #fff; text-shadow: 0 0 18px rgba(160, 120, 255, .9), 0 0 42px rgba(120, 80, 255, .6), 0 0 80px rgba(120, 80, 255, .35); }
+/* sketch -> final: hover the merch sketches to fade in the printed tee */
+.shot[data-i="m-merch"] .morph { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #fff; opacity: 0; transition: opacity .7s ease; }
+.shot[data-i="m-merch"]:hover .morph, .shot[data-i="m-merch"]:focus-visible .morph { opacity: 1; }
+.morph-hint { position: absolute; left: 10px; bottom: 10px; padding: 4px 10px; border-radius: 999px; background: rgba(13, 12, 11, .7); color: var(--fg);
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; pointer-events: none; transition: opacity .3s; }
+.shot[data-i="m-merch"]:hover .morph-hint { opacity: 0; }
+@media (hover: none) { .morph-hint { display: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .reveal-pending, .split.split-pending .w { opacity: 1; transform: none; filter: none; }
+  .progress { display: none; }
+}
+
+/* ---------- Lightbox ---------- */
+.lb { position: fixed; inset: 0; z-index: 60; background: rgba(13, 12, 11, .97); color: var(--fg); display: grid; grid-template-rows: 1fr auto; gap: 16px;
+  padding: calc(env(safe-area-inset-top, 0px) + 64px) var(--gutter) calc(env(safe-area-inset-bottom, 0px) + 24px); }
+.lb[hidden] { display: none !important; }
+.lb img { width: auto; height: auto; max-height: 100%; max-width: 100%; object-fit: contain; margin: auto; min-height: 0; }
+.lb .cap { text-align: center; max-width: 60ch; margin: 0 auto; font-size: 15px; }
+.lb button { position: absolute; background: var(--fg); color: var(--bg); border: 0; border-radius: 999px; width: 48px; height: 48px; font-size: 18px; cursor: pointer; display: grid; place-items: center; }
+.lb button:hover { background: var(--coral); }
+.lb .close { top: calc(env(safe-area-inset-top, 0px) + 12px); right: var(--gutter); }
+.lb .prev { left: var(--gutter); top: 50%; }
+.lb .next { right: var(--gutter); top: 50%; }
+@media (max-width: 600px) { .lb .prev, .lb .next { top: auto; bottom: calc(env(safe-area-inset-bottom, 0px) + 16px); } }
+
+/* symbol sequence in page order: card, ace, cherry, clover, repeat */
+body .sym-0::before { width: 16px !important; height: 16px !important; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg transform='rotate%28-14 11 15%29'%3E%3Crect x='3' y='5' width='14' height='20' rx='2' fill='none' stroke='%23fff' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath transform='translate%286.3 8.6%29 scale%28.3%29' d='M0 5C-3 2.5 -5 .6 -5 -1.8C-5 -3.6 -3.6 -4.8 -2.2 -4.8C-1.2 -4.8 -.4 -4.2 0 -3.4C.4 -4.2 1.2 -4.8 2.2 -4.8C3.6 -4.8 5 -3.6 5 -1.8C5 .6 3 2.5 0 5Z' fill='%23fff'/%3E%3C/g%3E%3Cg transform='rotate%2812 18 16%29'%3E%3Crect x='11' y='6' width='14' height='20' rx='2' fill='%23151311' stroke='%23fff' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath transform='translate%2814.2 9.6%29 scale%28.3%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' fill='%23fff'/%3E%3Cpath transform='translate%2821.8 22.6%29 rotate%28180%29 scale%28.3%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' fill='%23fff'/%3E%3Ctext x='18' y='19.6' text-anchor='middle' font-family='Arial%2Csans-serif' font-size='7.5' fill='%23fff'%3EA%3C/text%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat !important; }
+body .sym-1::before { width: 10px !important; height: 12px !important; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16'%3E%3Cpath transform='translate%287 8%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' stroke='%23fff' stroke-width='1.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+body .sym-2::before { width: 11px !important; height: 11px !important; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='6' cy='14' r='3.6' stroke='%23fff' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='14' cy='14.5' r='3.6' stroke='%23fff' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M6 10.4C7 6 10 3.5 14 2.5M14 10.9c0-3.5-1-6.5 0-8.4' stroke='%23fff' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 2.5c1.6.3 3 1.4 3.5 3-1.9.1-3.2-.9-3.5-3z' stroke='%23fff' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat !important; }
+body .sym-3::before { width: 13px !important; height: 13px !important; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 34'%3E%3Cdefs%3E%3Cpath id='h' d='M0 -.6C-1.4 -2.6 -5.6 -4.8 -5.6 -8.8C-5.6 -11.4 -3.2 -12.6 -1.6 -11.6C-.8 -11.1 -.2 -10.4 0 -9.6C.2 -10.4 .8 -11.1 1.6 -11.6C3.2 -12.6 5.6 -11.4 5.6 -8.8C5.6 -4.8 1.4 -2.6 0 -.6Z'/%3E%3Cg id='c'%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%2845%29 translate%280 -1.2%29'/%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%28135%29 translate%280 -1.2%29'/%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%28225%29 translate%280 -1.2%29'/%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%28315%29 translate%280 -1.2%29'/%3E%3C/g%3E%3Cmask id='m'%3E%3Crect x='-5' y='-5' width='50' height='50' fill='%23fff'/%3E%3Cuse href='%23c' fill='%23000'/%3E%3C/mask%3E%3C/defs%3E%3Cg mask='url%28%23m%29' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linejoin='round'%3E%3Cuse href='%23c'/%3E%3Cpath d='M16 15C17.6 21 19.6 26 22.6 31.2' stroke-linecap='round' stroke-width='2.2'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat !important; }
+
+body #about .row figure:nth-child(4) figcaption::before { width: 23px !important; height: 11.5px !important; border-radius: 0; opacity: 1; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1 -1 32 16'%3E%3Cg fill='none' stroke='%23fff' stroke-width='.7' stroke-linejoin='round'%3E%3Cpath transform='translate%280 0%29' d='M1 4.6V1H9.2V3C6.6 5.6 5.3 9 5.3 13H2.4C2.4 9.4 3.8 6.2 6.2 3.6H3.4V4.6Z'/%3E%3Cpath transform='translate%2810 0%29' d='M1 4.6V1H9.2V3C6.6 5.6 5.3 9 5.3 13H2.4C2.4 9.4 3.8 6.2 6.2 3.6H3.4V4.6Z'/%3E%3Cpath transform='translate%2820 0%29' d='M1 4.6V1H9.2V3C6.6 5.6 5.3 9 5.3 13H2.4C2.4 9.4 3.8 6.2 6.2 3.6H3.4V4.6Z'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat !important; margin-top: 2px; }   /* stacked 777 on Tech Demo */
+.ticker span { font-family: "Orbitron", var(--sans); font-style: normal; font-weight: 400; text-transform: uppercase; letter-spacing: .16em; font-size: clamp(15px, 1.5vw, 20px); text-shadow: none; }   /* techy banner, no glow */
+#about .label, #planning .label, #work .label, #before-after .label { font-size: 14px; } body #about .label::before, body #planning .label::before, body #work .label::before, body #before-after .label::before { width: 18px !important; height: 18px !important; }   /* Before & after label a bit bigger */
+body #planning .label::before { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Cg transform='rotate%28-14 11 15%29'%3E%3Crect x='3' y='5' width='14' height='20' rx='2' fill='none' stroke='%23fff' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath transform='translate%286.3 8.6%29 scale%28.3%29' d='M0 5C-3 2.5 -5 .6 -5 -1.8C-5 -3.6 -3.6 -4.8 -2.2 -4.8C-1.2 -4.8 -.4 -4.2 0 -3.4C.4 -4.2 1.2 -4.8 2.2 -4.8C3.6 -4.8 5 -3.6 5 -1.8C5 .6 3 2.5 0 5Z' fill='%23fff'/%3E%3C/g%3E%3Cg transform='rotate%2812 18 16%29'%3E%3Crect x='11' y='6' width='14' height='20' rx='2' fill='%23151311' stroke='%23fff' stroke-width='1.2' stroke-linejoin='round'/%3E%3Cpath transform='translate%2814.2 9.6%29 scale%28.3%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' fill='%23fff'/%3E%3Cpath transform='translate%2821.8 22.6%29 rotate%28180%29 scale%28.3%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' fill='%23fff'/%3E%3Ctext x='18' y='19.6' text-anchor='middle' font-family='Arial%2Csans-serif' font-size='7.5' fill='%23fff'%3EA%3C/text%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat !important; }   /* playing cards, not the spade */
+body #work .label::before { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 16'%3E%3Cpath transform='translate%287 8%29' d='M0 -6C-2 -3 -5 -1.5 -5 1.5C-5 3.3 -3.6 4.3 -2.3 4.3C-1.3 4.3 -.6 3.8 -.3 3.2C-.4 4.5 -.9 5.6 -1.8 6.4H1.8C.9 5.6 .4 4.5 .3 3.2C.6 3.8 1.3 4.3 2.3 4.3C3.6 4.3 5 3.3 5 1.5C5 -1.5 2 -3 0 -6Z' stroke='%23fff' stroke-width='1.2' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat !important; }   /* spade */
+body #before-after .label::before { background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Ccircle cx='6' cy='14' r='3.6' stroke='%23fff' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='14' cy='14.5' r='3.6' stroke='%23fff' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M6 10.4C7 6 10 3.5 14 2.5M14 10.9c0-3.5-1-6.5 0-8.4' stroke='%23fff' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M14 2.5c1.6.3 3 1.4 3.5 3-1.9.1-3.2-.9-3.5-3z' stroke='%23fff' stroke-width='1.3' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / contain no-repeat !important; }   /* cherries */
+body #before-after .ba-grid figure:nth-child(1) figcaption::before { width: 14px !important; height: 15px !important; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 34'%3E%3Cdefs%3E%3Cpath id='h' d='M0 -.6C-1.4 -2.6 -5.6 -4.8 -5.6 -8.8C-5.6 -11.4 -3.2 -12.6 -1.6 -11.6C-.8 -11.1 -.2 -10.4 0 -9.6C.2 -10.4 .8 -11.1 1.6 -11.6C3.2 -12.6 5.6 -11.4 5.6 -8.8C5.6 -4.8 1.4 -2.6 0 -.6Z'/%3E%3Cg id='c'%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%2845%29 translate%280 -1.2%29'/%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%28135%29 translate%280 -1.2%29'/%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%28225%29 translate%280 -1.2%29'/%3E%3Cuse href='%23h' transform='translate%2816 15%29 rotate%28315%29 translate%280 -1.2%29'/%3E%3C/g%3E%3Cmask id='m'%3E%3Crect x='-5' y='-5' width='50' height='50' fill='%23fff'/%3E%3Cuse href='%23c' fill='%23000'/%3E%3C/mask%3E%3C/defs%3E%3Cg mask='url%28%23m%29' fill='none' stroke='%23fff' stroke-width='2.2' stroke-linejoin='round'%3E%3Cuse href='%23c'/%3E%3Cpath d='M16 15C17.6 21 19.6 26 22.6 31.2' stroke-linecap='round' stroke-width='2.2'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat !important; }   /* clover on the Before caption */
+body #before-after .ba-grid figure:nth-child(2) figcaption::before { width: 23px !important; height: 11.5px !important; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-1 -1 32 16'%3E%3Cg fill='none' stroke='%23fff' stroke-width='.7' stroke-linejoin='round'%3E%3Cpath transform='translate%280 0%29' d='M1 4.6V1H9.2V3C6.6 5.6 5.3 9 5.3 13H2.4C2.4 9.4 3.8 6.2 6.2 3.6H3.4V4.6Z'/%3E%3Cpath transform='translate%2810 0%29' d='M1 4.6V1H9.2V3C6.6 5.6 5.3 9 5.3 13H2.4C2.4 9.4 3.8 6.2 6.2 3.6H3.4V4.6Z'/%3E%3Cpath transform='translate%2820 0%29' d='M1 4.6V1H9.2V3C6.6 5.6 5.3 9 5.3 13H2.4C2.4 9.4 3.8 6.2 6.2 3.6H3.4V4.6Z'/%3E%3C/g%3E%3C/svg%3E") center / contain no-repeat !important; margin-top: 4px; }   /* 777 on the After caption */
+/* ---------- Intro as a magazine cover / opening spread ---------- */
+.intro.mag { background: #fff; background-image: none; color: #2e1d17; display: block; min-height: 0; padding-block: clamp(28px, 4vw, 48px) clamp(56px, 7vw, 96px); }
+nav.top.nav-intro { background: #fff; }
+.mag-in { max-width: 1240px; }
+.mag-top, .mag-sub { display: flex; justify-content: space-between; gap: 16px; font-family: "Josefin Sans", "Helvetica Neue", sans-serif; font-size: 12px; font-weight: 400; letter-spacing: .28em; text-transform: uppercase; color: #a0705c; }
+.mag-top { padding-bottom: 12px; border-bottom: 1px solid #d9708e; }
+.mag-title { margin: clamp(10px, 1.6vw, 22px) 0 0; font-family: "Bodoni Moda", "Didot", Georgia, serif; font-weight: 500; text-transform: uppercase; text-align: center; font-size: clamp(54px, 13.4vw, 196px); line-height: .86; letter-spacing: -.035em; color: #5a3628; white-space: nowrap; }
+.mag-sub { margin-top: clamp(10px, 1.4vw, 18px); padding-top: 12px; border-top: 1px solid #d9708e; }
+.mag-spread { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .78fr) minmax(0, 1fr); gap: clamp(16px, 2.4vw, 36px); align-items: end; margin-top: clamp(28px, 4vw, 52px); }
+.mag-pic { position: relative; display: block; aspect-ratio: 3 / 4; overflow: hidden; color: #fff; text-decoration: none; }
+.mag-pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform .9s ease; }
+.mag-pic::after { content: ""; position: absolute; inset: 0; background: linear-gradient(to top, rgba(25, 14, 10, .72), rgba(25, 14, 10, 0) 52%); }
+.mag-line { position: absolute; left: clamp(16px, 2vw, 26px); right: clamp(16px, 2vw, 26px); bottom: clamp(16px, 2vw, 24px); z-index: 1; display: grid; gap: 4px; }
+.mag-line i { font-style: normal; font-family: "Josefin Sans", sans-serif; font-size: 12px; letter-spacing: .3em; color: #fff; }
+.mag-line b { font-family: "Bodoni Moda", Georgia, serif; font-weight: 500; font-size: clamp(22px, 2.4vw, 34px); line-height: 1.05; letter-spacing: -.01em; }
+.mag-line em { font-style: italic; font-family: var(--serif); font-size: clamp(14px, 1.15vw, 16px); opacity: .9; }
+@media (hover: hover) { .mag-pic:hover img { transform: scale(1.04); } }
+.mag-note { align-self: center; text-align: center; padding-block: 12px; }
+.mag-kicker { margin: 0; font-family: "Josefin Sans", sans-serif; font-size: 12px; letter-spacing: .3em; text-transform: uppercase; color: #d9708e; }
+.mag-lede { margin: 14px 0 0; font-family: var(--serif); font-style: italic; font-size: clamp(20px, 1.9vw, 27px); line-height: 1.35; color: #5a3628; text-wrap: balance; }
+.mag-inside { margin: 26px auto 0; padding-top: 16px; border-top: 1px solid #ead9cf; max-width: 22ch; font-family: "Josefin Sans", sans-serif; font-size: 14px; line-height: 1.9; letter-spacing: .04em; color: #8a5b48; }
+.mag-inside b { font-weight: 400; color: #d9708e; }   /* only the numbers pink */
+.mag-inside span { display: block; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: #a0705c; }
+.mag-cue { display: inline-flex; gap: 8px; margin-top: 22px; font-family: "Josefin Sans", sans-serif; font-size: 12px; letter-spacing: .24em; text-transform: uppercase; color: #5a3628; text-decoration: none; border-bottom: 1px solid currentColor; padding-bottom: 3px; }
+.mag-cue:hover { color: #d9708e; }
+@media (max-width: 760px) {
+  .mag-top span:nth-child(2), .mag-sub span:last-child { display: none; }
+  .mag-spread { grid-template-columns: 1fr 1fr; }
+  .mag-note { grid-column: 1 / -1; grid-row: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) { .ticker .track { animation: none; } }
+</style>
+
+<nav class="top" aria-label="Main">
+  <div class="progress" aria-hidden="true"></div>
+  <div class="wrap">
+    <span class="nav-tag">Portfolio &middot; Events &amp; booth design</span>
+    <a class="name" href="#top">Reyo Otero</a>
+    <span class="nav-mono" aria-hidden="true">Ro</span>
+    <a class="right" href="#contact">Get in touch</a>
+  </div>
+</nav>
+
+<section class="intro mag" id="intro">
+  <div class="wrap mag-in">
+    <div class="mag-top"><span>Portfolio &middot; Vol. 01</span><span>Events &amp; booth design</span><span>2026</span></div>
+    <h1 class="mag-title">Reyo Otero</h1>
+    <div class="mag-sub"><span>Event coordinator &amp; booth designer</span><span>Phoenix, AZ</span></div>
+    <div class="mag-spread">
+      <a class="mag-pic" href="#project-01">
+        <img src="img/3.jpg" alt="The finished AICPA ENGAGE sponsor booth" width="1200" height="1600">
+        <span class="mag-line"><i>01</i><b>AICPA ENGAGE 2026</b><em>A sponsor booth at the Aria, Las Vegas, built from scratch</em></span>
+      </a>
+      <div class="mag-note">
+        <p class="mag-kicker">Editor&rsquo;s note</p>
+        <p class="mag-lede">I plan, source, and build spaces people want to stop at, from sponsor booths on the Las Vegas Strip to my own vintage pop-ups.</p>
+        <p class="mag-inside"><span>Inside</span><b>01</b> &middot; The booth<br><b>02</b> &middot; The pop-ups</p>
+        <a class="mag-cue" href="#project-01">Scroll to begin <span aria-hidden="true">&darr;</span></a>
+      </div>
+      <a class="mag-pic" href="#off-vintage">
+        <img src="img/ff-38.jpg" alt="Reyo at her Off Vintage Ave pop-up" width="1200" height="1600">
+        <span class="mag-line"><i>02</i><b>Off Vintage Ave</b><em>My vintage pop-ups in Phoenix</em></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="hero-wrap" id="project-01">
+<header class="hero" id="top">
+  <img src="img/4.jpg" alt="The Las Vegas Strip lit up at night" width="1200" height="1600">
+  <div class="hero-text">
+    <div class="chips"><span class="dice-wrap" role="img" aria-label="Pair of dice"><svg class="dice" viewBox="0 0 60 32" width="45" height="24" aria-hidden="true"><g transform="translate(2 4) rotate(-12 13 13)"><rect x="1" y="1" width="24" height="24" rx="6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7" cy="7" r="2" fill="currentColor"/><circle cx="19" cy="7" r="2" fill="currentColor"/><circle cx="13" cy="13" r="2" fill="currentColor"/><circle cx="7" cy="19" r="2" fill="currentColor"/><circle cx="19" cy="19" r="2" fill="currentColor"/></g><g transform="translate(32 2) rotate(10 13 13)"><rect x="1" y="1" width="24" height="24" rx="6" fill="none" stroke="currentColor" stroke-width="1.6"/><circle cx="7" cy="7" r="2" fill="currentColor"/><circle cx="13" cy="13" r="2" fill="currentColor"/><circle cx="19" cy="19" r="2" fill="currentColor"/></g></svg></span></div>
+    <h1>AICPA ENGAGE<br><span class="yr">2026</span></h1>
+    <p>A sponsor booth at the <span class="hl">Aria, Las Vegas,</span> designed, sourced, and built from scratch.</p>
+    <a class="btn" id="see-work" href="#about">See the work <span aria-hidden="true">↓</span></a>
+  </div>
+</header>
+</div>
+
+<section class="panel blue" id="about">
+  <div class="wrap about">
+    <span class="label">About</span>
+    <h2 class="serif split">I took a plain pipe-and-drape booth and built a space attendees wanted to stop at.</h2>
+    <p class="dots"><span>Event coordinator &amp; booth designer</span><span>Aria, Las Vegas</span><span>Event sponsor</span></p>
+    <p class="role"><span class="role-k">What I owned:</span> Booth design<span class="sep"></span>Vendors &amp; sourcing<span class="sep"></span>Merch &amp; swag<span class="sep"></span>Logistics<span class="sep"></span>Install<span class="sep"></span>On-site</p>
+    <div class="row">
+      <figure>
+        <button class="shot" data-i="7" data-cap="<b>Show day.</b> Steady attendee traffic at the finished booth."><img src="img/7.jpg" alt="The finished booth lit in purple with attendees talking to the team" width="1600" height="1200"></button>
+        <figcaption>Show day</figcaption>
+      </figure>
+      <figure>
+        <button class="shot" data-i="3" data-cap="<b>The finished booth.</b> Illuminated backdrop, purple flooring, LED light towers, and a demo kiosk."><img src="img/3.jpg" alt="Finished booth with an illuminated co-branded backdrop and purple flooring" width="1200" height="1600"></button>
+        <figcaption>The finished booth</figcaption>
+      </figure>
+      <figure>
+        <button class="shot" data-i="6" data-cap="<b>Photo ready.</b> Me steaming out every wrinkle in the backdrop so the wall photographs clean before doors opened."><img src="img/6.jpg" alt="Reyo steaming the fabric backdrop to remove wrinkles" width="1200" height="1600"></button>
+        <figcaption>Steaming the backdrop</figcaption>
+      </figure>
+      <figure>
+        <button class="shot" data-i="12" data-cap="<b>Tech Demo stage.</b> The team presenting their product to attendees."><img src="img/12.jpg" alt="A presenter on the Tech Demo stage" width="1200" height="1600"></button>
+        <figcaption>Tech Demo stage</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<div class="panel coral ticker" aria-hidden="true">
+  <div class="track">
+    <span>Event coordination</span><span>Booth design</span><span>Backdrop design</span><span>Sourcing</span><span>Logistics</span><span>Install</span><span>Marketing</span>
+    <span>Event coordination</span><span>Booth design</span><span>Backdrop design</span><span>Sourcing</span><span>Logistics</span><span>Install</span><span>Marketing</span>
+  </div>
+</div>
+
+<section class="panel blue" id="planning">
+  <div class="wrap prep">
+    <div class="prep-head">
+      <span class="label">Before the show</span>
+      <h2 class="serif split">Every detail designed before the doors opened.</h2>
+      <p>I mocked up the whole booth first: the layout, the print files, the screens, and the swag.</p>
+    </div>
+    <div class="mocks">
+      <figure class="mock t-hero">
+        <button class="shot paper" data-i="m-sketchup2" data-cap="<b>Booth mockup.</b> Built the full booth in SketchUp, down to the shot glasses, tees, and iPad QR code."><img src="img/m-sketchup2.jpg" alt="3D SketchUp mockup of the booth with backdrop, light towers, kiosk, and cocktail table" width="1099" height="877"></button>
+        <figcaption><b>Booth mockup</b>Built the full booth in SketchUp, down to the shot glasses, tees, and iPad QR code.</figcaption>
+      </figure>
+      <figure class="mock t-side">
+        <button class="shot paper" data-i="m-table" data-cap="<b>Swag table.</b> Zoomed in on the giveaway setup: the iPad sign, folded shirts, and branded shot glasses."><img src="img/m-table.jpg" alt="SketchUp close-up of the cocktail table with an iPad sign, shirts, and shot glasses" width="441" height="870"></button>
+        <figcaption><b>Swag table</b>Zoomed in on the giveaway setup: the iPad sign, folded shirts, and branded shot glasses.</figcaption>
+      </figure>
+      <figure class="mock t-half">
+        <button class="shot paper" data-i="m-merch" data-cap="<b>Merch.</b> Giveaway tees, staff polos, and fitted tees with every logo placement laid out."><img src="img/m-merch.jpg" alt="Mockups of giveaway t-shirts, a staff polo, and a fitted tee" width="1600" height="1600"><img class="morph" src="img/m-tshirt-proof.jpg" alt="" aria-hidden="true"><span class="morph-hint">Hover to see the final</span></button>
+        <figcaption><b>Merch</b>Giveaway tees, staff polos, and fitted tees with every logo placement laid out.</figcaption>
+      </figure>
+      <figure class="mock t-half">
+        <button class="shot paper" data-i="m-tshirt-proof" data-cap="<b>Final tee design.</b> The official, final design that went to print: logo on the front, bird on the sleeve, and SAVING SOC 2 on the back."><img src="img/m-tshirt-proof.jpg" alt="Screen-print proof for black giveaway tees with the logo on the front, a bird on the sleeve, and SAVING SOC 2 on the back" width="1490" height="1254"></button>
+        <figcaption><b>Final tee design</b>The official, final design that went to print: logo on the front, bird on the sleeve, and SAVING SOC 2 on the back.</figcaption>
+      </figure>
+      <figure class="mock t-ipad">
+        <button class="shot paper" data-i="m-ipad" data-cap="<b>iPad slideshow.</b> Designed eight rotating slides for the booth iPads, with a QR code to learn more."><img src="img/m-ipad.jpg" alt="iPad slide reading SOC 2 with receipts and a QR code" width="586" height="882"></button>
+        <figcaption><b>iPad slideshow</b>Designed eight rotating slides for the booth iPads, with a QR code to learn more.</figcaption>
+      </figure>
+      <figure class="mock t-half">
+        <button class="shot paper" data-i="m-backdrop-cut" data-cap="<b>Backdrop design.</b> Designed the step-and-repeat and previewed it on its frame before print."><img src="img/m-backdrop-cut.png" alt="Mockup of the printed step-and-repeat backdrop on its frame" width="938" height="630"></button>
+        <figcaption><b>Backdrop design</b>Designed the step-and-repeat and previewed it on its frame before print.</figcaption>
+      </figure>
+      <figure class="mock t-half">
+        <button class="shot paper" data-i="m-floorplan" data-cap="<b>Finding our spot.</b> Located our booth on the expo map and Aria's 3D layout."><img src="img/m-floorplan.jpg" alt="Expo floor plan of the Pinyon and Bristlecone ballrooms with the booth location highlighted" width="1600" height="884"></button>
+        <figcaption><b>Finding our spot</b>Located our booth on the expo map and Aria's 3D layout.</figcaption>
+      </figure>
+      <figure class="mock t-half">
+        <button class="shot paper" data-i="m-shotglass" data-cap="<b>Shot glasses.</b> Approved the proof for frosted purple shot glasses, printed front and back, as booth swag."><img src="img/m-shotglass.jpg" alt="Proof of frosted purple shot glasses with the bird logo on one side and the wordmark on the other" width="1100" height="740"></button>
+        <figcaption><b>Shot glasses</b>Approved the proof for frosted purple shot glasses, printed front and back, as booth swag.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="panel cream" id="work">
+  <div class="wrap work">
+    <span class="label">The work</span>
+    <div class="cards">
+      <figure class="card card-wide">
+        <h3>Move-in day</h3>
+        <button class="shot" data-i="pov" data-cap="<b>The view from the 10&times;10.</b> Move-in day at the Aria, looking out from the empty booth onto the expo floor."><img src="img/pov.jpg" alt="View from the empty 10 by 10 booth looking out over the AICPA expo floor at the Aria during move-in" width="2000" height="1215"></button>
+        <figcaption><b>The view from the 10&times;10.</b> Move-in day at the Aria, looking out from the empty booth onto the expo floor.</figcaption>
+      </figure>
+      <figure class="card">
+        <h3>Sourcing</h3>
+        <button class="shot" data-i="10" data-cap="<b>Dry run in storage.</b> I sourced every piece myself, then laid out the floor tiles and backdrop frame to check the fit before the show."><img src="img/10.jpg" alt="Storage unit with purple floor tiles and the backdrop frame laid out"></button>
+        <figcaption><b>Dry run in storage.</b> I sourced every piece myself, then laid out the floor tiles and backdrop frame to check the fit before the show.</figcaption>
+      </figure>
+      <figure class="card">
+        <h3>Logistics</h3>
+        <button class="shot" data-i="11" data-cap="<b>Packed and ready.</b> Flooring, the backdrop case, lighting, and booth supplies staged on carts for transport to the venue."><img src="img/11.jpg" alt="Storage hallway with two carts loaded with boxes of flooring, the backdrop case, and booth supplies"></button>
+        <figcaption><b>Packed and ready.</b> Flooring, the backdrop case, lighting, and booth supplies staged on carts for transport to the venue.</figcaption>
+      </figure>
+      <figure class="card">
+        <h3>Install</h3>
+        <button class="shot" data-i="6" data-cap="<b>Photo ready.</b> Steaming every wrinkle out of the backdrop I designed, so it photographs clean."><img src="img/6.jpg" alt="Reyo steaming the fabric backdrop to remove wrinkles"></button>
+        <figcaption><b>Photo ready.</b> Steaming every wrinkle out of the backdrop I designed, so it photographs clean.</figcaption>
+      </figure>
+      <figure class="card">
+        <h3>Show day</h3>
+        <button class="shot" data-i="7" data-cap="<b>All eyes on the booth.</b> The lit backdrop and purple floor drew attendees in from across the hall and kept the booth busy all day."><img src="img/7.jpg" alt="The finished booth with attendees"></button>
+        <figcaption><b>All eyes on the booth.</b> The lit backdrop and purple floor drew attendees in from across the hall and kept the booth busy all day.</figcaption>
+      </figure>
+      <figure class="card">
+        <h3>Tech Demo</h3>
+        <button class="shot" data-i="12" data-cap="<b>Tech Demo stage.</b> Supporting the team's spot on the conference's Tech Demo stage."><img src="img/12.jpg" alt="A presenter on the Tech Demo stage"></button>
+        <figcaption><b>Tech Demo stage.</b> Supporting the team's spot on the conference's Tech Demo stage.</figcaption>
+      </figure>
+      <figure class="card">
+        <h3>On site</h3>
+        <button class="shot" data-i="9" data-cap="<b>Badge on, all in.</b> On site from setup through show day, running the booth and working the floor."><img src="img/9.jpg" alt="AICPA ENGAGE sponsor badge and lanyard"></button>
+        <figcaption><b>Badge on, all in.</b> On site from setup through show day, running the booth and working the floor.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="panel blue" id="before-after">
+  <div class="wrap ba">
+    <div class="ba-head">
+      <span class="label">Before &amp; after</span>
+      <h2 class="serif split">Same space. A completely different story.</h2>
+    </div>
+    <div class="ba-grid">
+      <figure>
+        <h3>Before</h3>
+        <button class="shot" data-i="1" data-cap="<b>Before.</b> The empty booth as delivered by the venue: black drape, a skirted table, and two chairs."><img src="img/1.jpg" alt="Empty booth with black drapes, a skirted table, and two chairs" width="1200" height="1600"></button>
+        <figcaption>Black drape, a skirted table, and two chairs, as delivered by the venue.</figcaption>
+      </figure>
+      <figure>
+        <h3>After</h3>
+        <button class="shot" data-i="3"><img src="img/3.jpg" alt="The finished booth on show day: illuminated co-branded backdrop, two violet LED light towers, purple flooring, and attendees at the kiosk" width="1200" height="1600"></button>
+        <figcaption>Illuminated backdrop, two violet LED light towers, purple flooring, and attendees at the demo kiosk.</figcaption>
+      </figure>
+    </div>
+
+    <ul class="built">
+      <li><span class="k">Backdrop</span><span class="v">Sleek fabric tension wall, co-branded</span></li>
+      <li><span class="k">Floor</span><span class="v">Interlocking purple tiles over hotel carpet</span></li>
+      <li><span class="k">Lighting</span><span class="v">Boutique lamps and violet LED light towers</span></li>
+      <li><span class="k">Furniture</span><span class="v">Demo kiosk and a high-top cocktail table</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="panel ff" id="off-vintage">
+  <div class="ff-stripes" aria-hidden="true"></div>
+  <div class="wrap ff-wrap ff-script">
+    <header class="ff-head">
+      <span class="ff-eyebrow">Project 02 &middot; My own pop-up</span>
+      <h2 class="ff-title">Off Vintage Ave</h2>
+      <p class="ff-kicker">at First Friday, Downtown Phoenix</p>
+      <p class="ff-intro">My vintage pop-up at the city's monthly art walk and vendor market. I curated the stock, priced and tagged every piece, designed the 10&times;10 space, promoted it on social media, and ran the booth from 6&nbsp;to&nbsp;11&nbsp;PM.</p>
+      <p class="ff-chips"><span>Owner &amp; vendor</span><span>Roosevelt Row, Phoenix</span><span>Dec 6, 2025</span><span>10&times;10 booth</span></p>
+    </header>
+    <div class="ff-chapter">
+      <div class="ff-chead"><span class="ff-num">01</span><h3>The prep</h3><p>Stock, tags, and a very full car.</p></div>
+      <div class="ff-grid g4">
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-49" data-cap="<b>From storage.</b> Pulled stock, the glass table, and display pieces from my storage unit."><img src="img/ff-49.jpg" alt="Shoes, the glass table, and a cart of bags and decor in a storage unit" width="1200" height="1600"></button>
+          <figcaption><b>From storage</b>Pulled stock, the glass table, and display pieces from my storage unit.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-51" data-cap="<b>Priced and tagged.</b> Sorted every piece and tagged it by hand so the racks were ready to shop."><img src="img/ff-51.jpg" alt="Clothes on the floor beside a tagging gun and price tags" width="900" height="1600"></button>
+          <figcaption><b>Priced and tagged</b>Sorted every piece and tagged it by hand so the racks were ready to shop.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-36" data-cap="<b>Loaded up.</b> A small car and a lot of inventory. Every bin and hanger made it."><img src="img/ff-36.jpg" alt="Car back seat packed with clothes, bins, and hangers" width="1200" height="1600"></button>
+          <figcaption><b>Loaded up</b>A small car and a lot of inventory. Every bin and hanger made it.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-50" data-cap="<b>Racks and all.</b> Clothing racks and the display stand, fitted in piece by piece."><img src="img/ff-50.jpg" alt="Clothing racks and a metal display stand packed into a car" width="1200" height="1600"></button>
+          <figcaption><b>Racks and all</b>Clothing racks and the display stand, fitted in piece by piece.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="ff-chapter">
+      <div class="ff-chead"><span class="ff-num">02</span><h3>The promo</h3><p>Getting the word out before the night.</p></div>
+      <div class="ff-grid g-promo">
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-37" data-cap="<b>The flyer.</b> Designed a promo graphic with the date, hours, and my spot at 1st St and Roosevelt."><img src="img/ff-37.jpg" alt="Promo flyer for Off Vintage Ave at First Friday, 12/06, 6 to 11 PM" width="1286" height="1600"></button>
+          <figcaption><b>The flyer</b>Designed a promo graphic with the date, hours, and my spot at 1st St and Roosevelt.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-48" data-cap="<b>Instagram story updates.</b> Kept followers in the loop on Instagram, from registration to my booth location."><img src="img/ff-48.jpg" alt="Instagram story announcing the First Friday booth on December 6" width="738" height="1307"></button>
+          <figcaption><b>Instagram story updates</b>Kept followers in the loop on Instagram, from registration to my booth location.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="ff-chapter">
+      <div class="ff-chead"><span class="ff-num">03</span><h3>The space</h3><p>A 10&times;10 that felt like a little boutique.</p></div>
+      <div class="ff-grid g-space">
+        <figure class="ff-fig ff-big">
+          <button class="shot" data-i="ff-40" data-cap="<b>Open for business.</b> Ready for the 6 to 11 PM rush."><img src="img/ff-40.jpg" alt="Reyo posing at the booth with arms up" width="1200" height="1600"></button>
+          <figcaption><b>Open for business</b>Ready for the 6 to 11 PM rush.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-46" data-cap="<b>Holiday table.</b> It was December, so the glass table went festive: neon tree, pearls, and lamps."><img src="img/ff-46.jpg" alt="Glass table with a neon tree, pearls, and two lamps" width="1200" height="1600"></button>
+          <figcaption><b>Holiday table</b>It was December, so the glass table went festive: neon tree, pearls, and lamps.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-38" data-cap="<b>My 10&times;10.</b> Lit sign, bag stand, glass table, and racks, set up to be browsed from every side."><img src="img/ff-38.jpg" alt="Reyo smiling in front of the Off Vintage Ave booth" width="1200" height="1600"></button>
+          <figcaption><b>My 10&times;10</b>Lit sign, bag stand, glass table, and racks, set up to be browsed from every side.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="ff-chapter">
+      <div class="ff-chead"><span class="ff-num">04</span><h3>The night</h3><p>Traffic from open to close.</p></div>
+      <div class="ff-grid g3">
+        <figure class="ff-fig">
+          <div class="vshot"><video src="img/v1612.mp4" poster="img/v1612.jpg" muted loop playsinline preload="metadata" aria-label="Video of shoppers browsing the clothing racks under the tent"></video></div>
+          <figcaption><b>Steady traffic</b>Shoppers flipping through the racks all night.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <div class="vshot"><video src="img/v1628.mp4" poster="img/v1628.jpg" muted loop playsinline preload="metadata" aria-label="Video of a crowd of shoppers at the booth"></video></div>
+          <figcaption><b>A crowd at the booth</b>The lit sign and setup pulled people in from the street.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <div class="vshot"><video src="img/v1626.mp4" poster="img/v1626.jpg" muted loop playsinline preload="metadata" aria-label="Video of shoppers digging through the bin and bag display"></video></div>
+          <figcaption><b>Digging in</b>The bargain bin and bag wall kept people browsing.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="ff-chapter">
+      <div class="ff-chead"><span class="ff-num">05</span><h3>The people</h3><p>Happy shoppers, friends, and family.</p></div>
+      <div class="ff-grid g4">
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-44" data-cap="<b>Happy find.</b> A shopper showing off her new top."><img src="img/ff-44.jpg" alt="A shopper holding up a floral top she bought" width="1200" height="1600"></button>
+          <figcaption><b>Happy find</b>A shopper showing off her new top.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-45" data-cap="<b>Bagged and smiling.</b> Another happy customer heading out with her bag."><img src="img/ff-45.jpg" alt="A customer holding a shopping bag" width="1200" height="1600"></button>
+          <figcaption><b>Bagged and smiling</b>Another happy customer heading out with her bag.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-43" data-cap="<b>Good company.</b> Friends stopped by to hype the booth."><img src="img/ff-43.jpg" alt="Two friends posing at the booth" width="1200" height="1600"></button>
+          <figcaption><b>Good company</b>Friends stopped by to hype the booth.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-47" data-cap="<b>Family night.</b> Family came out to enjoy the scene."><img src="img/ff-47.jpg" alt="Reyo with family at the booth" width="1200" height="1600"></button>
+          <figcaption><b>Family night</b>Family came out to enjoy the scene.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-p41" data-cap="<b>Pink satin find.</b> A pink satin corset top, straight off the rack."><img src="img/ff-p41.jpg" alt="Shopper holding up a pink satin corset top" width="768" height="1024"></button>
+          <figcaption><b>Pink satin find</b>A pink satin corset top, straight off the rack.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-p42" data-cap="<b>Red-hot pick.</b> A red silk cami, picked out in minutes."><img src="img/ff-p42.jpg" alt="Shopper holding up a red silk cami" width="768" height="1024"></button>
+          <figcaption><b>Red-hot pick</b>A red silk cami, picked out in minutes.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-p43" data-cap="<b>Leather weather.</b> She found a vintage leather jacket and wore it right out."><img src="img/ff-p43.jpg" alt="A shopper posing in the vintage leather jacket she bought" width="768" height="1024"></button>
+          <figcaption><b>Leather weather</b>She found a vintage leather jacket and wore it right out.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-p44" data-cap="<b>Shoe score.</b> Heels from the shoe stand, going home."><img src="img/ff-p44.jpg" alt="Shopper holding up a pair of heels by the bag wall" width="768" height="1024"></button>
+          <figcaption><b>Shoe score</b>Heels from the shoe stand, going home.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-p45" data-cap="<b>Crochet season.</b> A brown crochet top for the win."><img src="img/ff-p45.jpg" alt="Shopper holding up a brown crochet top" width="768" height="1024"></button>
+          <figcaption><b>Crochet season</b>A brown crochet top for the win.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-p46" data-cap="<b>Plaid perfection.</b> A plaid mini skirt, new favorite."><img src="img/ff-p46.jpg" alt="Shopper holding up a plaid mini skirt" width="768" height="1024"></button>
+          <figcaption><b>Plaid perfection</b>A plaid mini skirt, new favorite.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-p47" data-cap="<b>Bebe Las Vegas.</b> A Y2K bebe tee, peak vintage."><img src="img/ff-p47.jpg" alt="Shopper holding up a maroon bebe Las Vegas tee" width="768" height="1024"></button>
+          <figcaption><b>Bebe Las Vegas</b>A Y2K bebe tee, peak vintage.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-p48" data-cap="<b>Best friends do it best.</b> Besties shopping together: a denim jacket and a moto jacket, one for each."><img src="img/ff-p48.jpg" alt="Two shoppers holding up a denim jacket and a black jacket" width="768" height="1024"></button>
+          <figcaption><b>Best friends do it best</b>Besties shopping together: a denim jacket and a moto jacket, one for each.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-p49" data-cap="<b>Pink Coach.</b> The signature pink Coach bag found its home."><img src="img/ff-p49.jpg" alt="Shopper holding up a pink Coach bag" width="768" height="1024"></button>
+          <figcaption><b>Pink Coach</b>The signature pink Coach bag found its home.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-p50" data-cap="<b>Golden find.</b> A metallic mini bag, love at first sight."><img src="img/ff-p50.jpg" alt="Shopper holding up a metallic mini bag" width="768" height="1024"></button>
+          <figcaption><b>Golden find</b>A metallic mini bag, love at first sight.</figcaption>
+        </figure>
+        <div class="ff-more"><p>&hellip;plus many more</p><span>Happy shoppers all night long</span></div>
+      </div>
+    </div>
+    <div class="ff-chapter">
+      <div class="ff-chead"><span class="ff-num">06</span><h3>Stars of the show</h3><p>The standout bag and the cutest guest of the night.</p></div>
+      <div class="ff-grid g2">
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-coach" data-cap="<b>Vintage Coach.</b> A pink signature-jacquard Coach bag, one of the vintage purses on the bag wall."><img src="img/ff-coach.jpg" alt="A hand holding up a pink vintage Coach signature bag at the booth" width="768" height="1024"></button>
+          <figcaption><b>Vintage Coach</b>A pink signature-jacquard Coach bag, one of the vintage purses on the bag wall.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="ff-dog" data-cap="<b>Four-legged fan.</b> Even the animals love Off Vintage Ave!"><img src="img/ff-dog.jpg" alt="A small fluffy dog on a leash by the shoe display" width="768" height="1024"></button>
+          <figcaption><b>Four-legged fan</b>Even the animals love Off Vintage Ave!</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+  <div class="ff-stripes ff-stripes-2" aria-hidden="true"></div>
+  <div class="wrap ff-wrap ff-first">
+    <header class="ff-head">
+      <svg class="stitch" aria-hidden="true"><rect/></svg>
+      <span class="ff-eyebrow">Where it started</span>
+      <h2 class="ff-title">My first pop-up</h2>
+      <p class="ff-kicker">Off Vintage Ave&rsquo;s very first vendor event</p>
+      <p class="ff-intro">An empty porch, a car full of clothes, and one afternoon to turn it into a little vintage shop. I prepped every piece, built the purse and shoe display, styled the space with lamps and flowers, and sold from open to close.</p>
+    </header>
+    <div class="ff-chapter">
+      <div class="ff-chead"><span class="ff-num">one</span><h3>The space</h3><p>The empty porch I was assigned.</p></div>
+      <div class="ff-grid g3">
+        <figure class="ff-fig ff-wide">
+          <button class="shot" data-i="fv-51" data-cap="<b>Blank slate.</b> Green walls, a concrete porch, and nothing else."><img src="img/fv-51.jpg" alt="The empty porch space before setup" width="1024" height="768"></button>
+          <figcaption><b>Blank slate</b>Green walls, a concrete porch, and nothing else.</figcaption>
+        </figure>
+        <figure class="ff-fig ff-wide">
+          <button class="shot" data-i="fv-52" data-cap="<b>Room to work.</b> The full length of the porch, ready to fill."><img src="img/fv-52.jpg" alt="The empty covered porch from the side" width="1600" height="1200"></button>
+          <figcaption><b>Room to work</b>The full length of the porch, ready to fill.</figcaption>
+        </figure>
+        <figure class="ff-fig ff-wide">
+          <button class="shot" data-i="fv-53" data-cap="<b>Front and center.</b> The door and window that became my backdrop."><img src="img/fv-53.jpg" alt="The empty storefront door and window" width="1600" height="1200"></button>
+          <figcaption><b>Front and center</b>The door and window that became my backdrop.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="ff-chapter">
+      <div class="ff-chead"><span class="ff-num">two</span><h3>The prep</h3><p>From storage unit to sales floor.</p></div>
+      <div class="ff-grid g4">
+        <figure class="ff-fig">
+          <button class="shot" data-i="fv-54" data-cap="<b>Everything, everywhere.</b> Pulled it all from storage and prepped it at home: tags, lights, and a tagging gun."><img src="img/fv-54.jpg" alt="A pile of clothes on a living room floor with tags and a tagging gun" width="900" height="1600"></button>
+          <figcaption><b>Everything, everywhere</b>Pulled it all from storage and prepped it at home: tags, lights, and a tagging gun.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="fv-55" data-cap="<b>The display.</b> Purse and shoe rack done: lit sign, bags, tulips, and heels."><img src="img/fv-55.jpg" alt="The finished purse and shoe display under the lit Off Vintage Ave sign" width="1200" height="1600"></button>
+          <figcaption><b>The display</b>Purse and shoe rack done: lit sign, bags, tulips, and heels.</figcaption>
+        </figure>
+        <figure class="ff-fig ff-wide ff-span2">
+          <button class="shot" data-i="fv-56" data-cap="<b>Set up.</b> Racks full, mirror up, denim folded, and lamps on."><img src="img/fv-56.jpg" alt="The finished pop-up with clothing racks, a mirror, and folded jeans" width="1600" height="1200"></button>
+          <figcaption><b>Set up</b>Racks full, mirror up, denim folded, and lamps on.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="ff-chapter">
+      <div class="ff-chead"><span class="ff-num">three</span><h3>The details</h3><p>Lamps, flowers, and good finds.</p></div>
+      <div class="ff-grid g2">
+        <figure class="ff-fig">
+          <button class="shot" data-i="fv-58" data-cap="<b>The glow.</b> Tulips, a fuzzy purse, and a beaded lamp set the mood."><img src="img/fv-58.jpg" alt="The ledge at dusk with tulips, a red purse, and a glowing lamp" width="1200" height="1600"></button>
+          <figcaption><b>The glow</b>Tulips, a fuzzy purse, and a beaded lamp set the mood.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="fv-68" data-cap="<b>Prada and denim.</b> A red Prada bag over the jean skirts and pants."><img src="img/fv-68.jpg" alt="A red Prada purse on folded jeans and skirts" width="768" height="1024"></button>
+          <figcaption><b>Prada and denim</b>A red Prada bag over the jean skirts and pants.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="ff-chapter">
+      <div class="ff-chead"><span class="ff-num">four</span><h3>In motion</h3><p>The racks, the glow, and the crowd.</p></div>
+      <div class="ff-grid g3">
+        <figure class="ff-fig">
+          <div class="vshot"><video src="img/fv-v1.mp4" poster="img/fv-v1.jpg" muted loop playsinline preload="metadata" aria-label="Video of the clothing racks set up on the porch"></video></div>
+          <figcaption><b>The racks</b>Every piece hung, tagged, and ready to shop.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <div class="vshot"><video src="img/fv-v2.mp4" poster="img/fv-v2.jpg" muted loop playsinline preload="metadata" aria-label="Video of the lit display with tulips and the Off Vintage Ave sign"></video></div>
+          <figcaption><b>The glow</b>String lights, tulips, and the lit sign after dark.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <div class="vshot"><video src="img/fv-v3.mp4" poster="img/fv-v3.jpg" muted loop playsinline preload="metadata" aria-label="Video of shoppers browsing the racks"></video></div>
+          <figcaption><b>The rush</b>Shoppers digging through the racks.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="ff-chapter">
+      <div class="ff-chead"><span class="ff-num">five</span><h3>The people</h3><p>Friends, family, and happy customers.</p></div>
+      <div class="ff-grid g3">
+        <figure class="ff-fig">
+          <button class="shot" data-i="fv-60" data-cap="<b>The owner.</b> Me, next to the sign that started it all."><img src="img/fv-60.jpg" alt="Reyo posing in a red leather jacket next to the Off Vintage Ave sign" width="724" height="1086"></button>
+          <figcaption><b>The owner</b>Me, next to the sign that started it all.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="fv-61" data-cap="<b>First customer, best friend.</b> My bestie, leaving with a bag full of finds."><img src="img/fv-61.jpg" alt="A friend holding up a shopping bag" width="768" height="1024"></button>
+          <figcaption><b>First customer, best friend</b>My bestie, leaving with a bag full of finds.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="fv-62" data-cap="<b>Red-bag energy.</b> A suede shoulder bag, sold."><img src="img/fv-62.jpg" alt="A shopper holding up a red suede bag" width="768" height="1024"></button>
+          <figcaption><b>Red-bag energy</b>A suede shoulder bag, sold.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="fv-63" data-cap="<b>Leather love.</b> A vintage leather jacket found its person."><img src="img/fv-63.jpg" alt="A shopper holding up a tan leather jacket" width="768" height="1024"></button>
+          <figcaption><b>Leather love</b>A vintage leather jacket found its person.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="fv-64" data-cap="<b>Baby blue.</b> A satin cami, straight off the rack."><img src="img/fv-64.jpg" alt="A shopper holding up a light blue satin cami" width="768" height="1024"></button>
+          <figcaption><b>Baby blue</b>A satin cami, straight off the rack.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="fv-65" data-cap="<b>Bomber season.</b> A brown leather bomber for the win."><img src="img/fv-65.jpg" alt="A shopper holding up a brown leather jacket" width="768" height="1024"></button>
+          <figcaption><b>Bomber season</b>A brown leather bomber for the win.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="fv-66" data-cap="<b>Gingham girl.</b> A gingham dress, love at first sight."><img src="img/fv-66.jpg" alt="A shopper holding up a gingham dress" width="768" height="1024"></button>
+          <figcaption><b>Gingham girl</b>A gingham dress, love at first sight.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="fv-67" data-cap="<b>Grandma approved.</b> My grandma came out to shop the purses."><img src="img/fv-67.jpg" alt="Reyo&#39;s grandma browsing the purse display" width="768" height="1024"></button>
+          <figcaption><b>Grandma approved</b>My grandma came out to shop the purses.</figcaption>
+        </figure>
+        <figure class="ff-fig">
+          <button class="shot" data-i="fv-69" data-cap="<b>Bag in hand.</b> Another happy customer, ready to wear her new finds."><img src="img/fv-69.jpg" alt="A smiling shopper holding a shopping bag" width="768" height="1024"></button>
+          <figcaption><b>Bag in hand</b>Another happy customer, ready to wear her new finds.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="panel cream" id="contact">
+  <div class="wrap">
+    <h2 class="serif split">Let's build yours.</h2>
+    <p>I plan and build trade show booths and events end to end: concept, design, sourcing, logistics, install, and marketing.</p>
+    <div class="contact">
+      <div class="email-pill">
+        <span class="email-text" id="email-text">Reyootero@me.com</span>
+        <button type="button" class="copy-btn" id="copy-email" aria-label="Copy email address">Copy</button>
+      </div>
+      <a class="cta-btn" href="https://www.linkedin.com/in/reyo-o-6ba3453a4/" target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">&#8599;</span></a>
+    </div>
+    <div class="legal"><span>© Reyo Otero</span><span>Event coordination · Booth design</span></div>
+  </div>
+</footer>
+
+<div class="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
+  <img alt="">
+  <p class="cap"></p>
+  <button class="close" aria-label="Close">✕</button>
+  <button class="prev" aria-label="Previous photo">←</button>
+  <button class="next" aria-label="Next photo">→</button>
+</div>
+
+<script>
+(() => {
+  // ---- Hero: pinned while you scroll through the whole Vegas photo, then the next section arrives ----
+  const nav = document.querySelector('nav.top'), wrap = document.querySelector('.hero-wrap'), hero = wrap.querySelector('.hero');
+  const heroImg = hero.querySelector('img'), heroText = hero.querySelector('.hero-text');
+  const still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let span = 0, runway = 0, hold = 0;
+  const layout = () => {
+    document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+    const W = hero.clientWidth, H = hero.clientHeight;
+    const r = (heroImg.naturalHeight / heroImg.naturalWidth) || 4 / 3;
+    let w = W, h = W * r;
+    if (h < H) { h = H; w = H / r; }
+    heroImg.style.width = w + 'px'; heroImg.style.height = h + 'px';
+    span = h - H;                                   // how far the photo can pan
+    runway = still ? 0 : Math.max(span * 1.4, H * 0.6); // scroll distance spent on the photo
+    hold = still ? 0 : Math.max(H * 0.8, 500);       // a couple of scrolls where the title just sits there before anything moves
+    wrap.style.height = (H + hold + runway) + 'px';
+    update();
+  };
+  const update = () => {
+    const start = wrap.offsetTop - nav.offsetHeight;
+    const p = runway ? Math.min(Math.max((scrollY - start - hold) / runway, 0), 1) : 0;
+    heroImg.style.transform = `translate3d(-50%, ${-p * span}px, 0)`;
+    const t = Math.min(p / 0.45, 1);                // headline clears out early so the photo shows
+    heroText.style.transform = `translate3d(0, ${-t * 90}px, 0)`;
+    heroText.style.opacity = String(1 - t);
+    heroText.style.pointerEvents = t > 0.9 ? 'none' : '';
+  };
+  let ticking = false;
+  addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(() => { ticking = false; update(); }); } }, { passive: true });
+  addEventListener('resize', layout);
+  if (heroImg.complete) layout(); else heroImg.addEventListener('load', layout);
+  layout();
+
+  // ---- In-page links (top menu, name, "See the work") glide to their section, clearing the sticky top bar ----
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.getElementById(link.getAttribute('href').slice(1));
+      if (!target) return;
+      e.preventDefault();
+      const top = target.id === 'top' ? 0 : target.getBoundingClientRect().top + scrollY - nav.offsetHeight;
+      scrollTo({ top, behavior: still ? 'auto' : 'smooth' });
+    });
+  });
+
+  // ---- Before / after slider: drag (or arrow keys) to wipe between the two photos; a gentle sweep hints it's interactive ----
+  document.querySelectorAll('.compare').forEach(cmp => {
+    const range = cmp.querySelector('.c-range');
+    const setPos = v => cmp.style.setProperty('--pos', v + '%');
+    range.addEventListener('input', () => setPos(range.value));
+    if (!still && 'IntersectionObserver' in window) {
+      const io = new IntersectionObserver(entries => {
+        if (!entries[0].isIntersecting) return;
+        io.disconnect();
+        const frames = [[0, 50], [700, 22], [1500, 78], [2200, 50]];
+        const t0 = performance.now();
+        const ease = t => t < .5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
+        const step = now => {
+          const t = now - t0;
+          let i = frames.findIndex(f => f[0] > t);
+          if (i === -1) { setPos(50); range.value = 50; return; }
+          const [ta, va] = frames[i - 1], [tb, vb] = frames[i];
+          const v = va + (vb - va) * ease((t - ta) / (tb - ta));
+          setPos(v); range.value = v;
+          requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }, { threshold: .55 });
+      io.observe(cmp);
+    }
+  });
+
+  // ---- Scroll progress line along the top bar ----
+  const prog = document.querySelector('.progress');
+  const onScrollP = () => { const max = document.documentElement.scrollHeight - innerHeight; prog.style.setProperty('--p', max > 0 ? Math.min(scrollY / max, 1) : 0); };
+  addEventListener('scroll', onScrollP, { passive: true }); onScrollP();
+
+  // ---- Headlines: split into words so they can fade in one after another ----
+  document.querySelectorAll('h2.split').forEach(h => {
+    const text = h.textContent.trim();
+    h.setAttribute('aria-label', text);
+    h.innerHTML = text.split(/\s+/).map((w, i) => `<span class="w" aria-hidden="true" style="--i:${i}">${w}</span>`).join(' ');
+  });
+
+  // ---- Photos and headlines that start below the fold rise in as they scroll into view ----
+  // only when the page is actually on screen with a real height, so nothing can get stuck hidden
+  if (!still && 'IntersectionObserver' in window && innerHeight > 200 && document.visibilityState === 'visible') {
+    const below = el => el.getBoundingClientRect().top > innerHeight * .9;
+    const io2 = new IntersectionObserver(entries => entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      const el = e.target; io2.unobserve(el);
+      if (el.classList.contains('split')) { el.classList.remove('split-pending'); el.classList.add('split-in'); }
+      else { el.classList.remove('reveal-pending'); el.classList.add('reveal-in'); }
+    }), { threshold: .15, rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.row, .mocks, .cards, .ff-grid').forEach(grid => {      // stagger items that share a row
+      let lastTop = null, n = 0;
+      [...grid.children].forEach(ch => { const t = ch.offsetTop; n = (t === lastTop) ? n + 1 : 0; lastTop = t; ch.style.setProperty('--d', (n * 0.12) + 's'); });
+    });
+    document.querySelectorAll('.row > figure, .mocks > figure, .cards > figure, .ff-grid > figure, .compare, .built li').forEach(el => { if (below(el)) { el.classList.add('reveal-pending'); io2.observe(el); } });
+    document.querySelectorAll('h2.split').forEach(h => { if (below(h)) { h.classList.add('split-pending'); io2.observe(h); } });
+  }
+
+  // ---- Copy email: copies to the clipboard, or selects the address if copying is blocked ----
+  const copyBtn = document.getElementById('copy-email'), emailEl = document.getElementById('email-text');
+  copyBtn.addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText(emailEl.textContent.trim()); copyBtn.textContent = 'Copied'; }
+    catch { const r = document.createRange(); r.selectNodeContents(emailEl); const sel = getSelection(); sel.removeAllRanges(); sel.addRange(r); copyBtn.textContent = 'Selected'; }
+    setTimeout(() => { copyBtn.textContent = 'Copy'; }, 1800);
+  });
+
+  // ---- Top bar switches to the pink theme while the Off Vintage Ave section is under it ----
+  const navEl = document.querySelector('nav.top'), ffSec = document.getElementById('off-vintage');
+  const onScrollNav = () => {
+    const h = navEl.offsetHeight, r = ffSec.getBoundingClientRect();
+    const ir = document.getElementById('intro').getBoundingClientRect();
+    navEl.classList.toggle('nav-ff', r.top <= h || ir.bottom > h);
+    navEl.classList.toggle('nav-intro', ir.bottom > h + 40);
+    navEl.classList.toggle('nav-ova', r.top <= h);
+  };
+  addEventListener('scroll', onScrollNav, { passive: true }); addEventListener('resize', onScrollNav); onScrollNav();
+
+  // ---- Fade and recede: once the list has scrolled up, the Vegas section dims and eases back as the stripes rise ----
+  const baFade = document.getElementById('before-after'), ovaSec = document.getElementById('off-vintage');
+  if (baFade && ovaSec && !still) {
+    const inner = baFade.querySelector('.wrap');
+    inner.style.transformOrigin = '50% 100%';
+    const recede = () => {
+      const navH = nav.offsetHeight, top = ovaSec.getBoundingClientRect().top;
+      const start = innerHeight * .6, p = Math.max(0, Math.min(1, (start - top) / (start - navH)));
+      inner.style.opacity = String(1 - p * .7);
+      inner.style.transform = p ? `scale(${1 - p * .05})` : '';
+    };
+    addEventListener('scroll', recede, { passive: true }); addEventListener('resize', recede); recede();
+  }
+  // ---- Curtain: the event section pins at its bottom and Off Vintage Ave slides up over it ----
+  const baSec = document.getElementById('before-after');
+  if (false && baSec && !still) {   // curtain off: the section scrolls away normally so the list below the photos can be read
+    baSec.classList.add('pin');
+    const pin = () => {
+      const navH = document.querySelector('nav.top').offsetHeight;
+      baSec.style.top = Math.min(navH, innerHeight - baSec.offsetHeight) + 'px';
+      const r = document.getElementById('off-vintage').getBoundingClientRect();
+      baSec.style.setProperty('--dim', Math.max(0, Math.min(1, 1 - (r.top - navH) / (innerHeight - navH))) * 0.6);
+    };
+    addEventListener('scroll', pin, { passive: true }); addEventListener('resize', pin); pin();
+  }
+
+
+  // ---- Night videos: calm by default; one plays at a time on hover (or tap on phones) ----
+  const vshots = [...document.querySelectorAll('.vshot')];
+  const stopAll = except => vshots.forEach(w => { if (w !== except) { const v = w.querySelector('video'); v.pause(); w.classList.remove('playing'); } });
+  vshots.forEach(w => {
+    const v = w.querySelector('video');
+    const play = () => { stopAll(w); v.play().catch(() => {}); w.classList.add('playing'); };
+    const stop = () => { v.pause(); w.classList.remove('playing'); };
+    if (matchMedia('(hover: hover)').matches) { w.addEventListener('mouseenter', play); w.addEventListener('mouseleave', stop); }
+    w.addEventListener('click', () => (v.paused ? play() : stop()));
+  });
+
+  // symbols cycle card, ace, cherry, clover down the page
+  document.querySelectorAll('#about .label, #about .row figcaption, #planning .label, #work .label, #before-after .label, #before-after .ba-grid figcaption').forEach((el, i) => el.classList.add('sym-' + (i % 4)));
+  // ---- Footer headline glows by itself when it comes into view ----
+  const footH = document.querySelector('footer#contact h2');
+  if (footH) {
+    footH.classList.add('glow');
+    let hopped = false, ci = 0;
+    footH.querySelectorAll('.w').forEach(w => { w.innerHTML = [...w.textContent].map(ch => `<span class="ch" style="--c:${ci++}">${ch}</span>`).join(''); });
+    const lastCh = footH.querySelector('.ch:last-child') && [...footH.querySelectorAll('.ch')].pop();
+    if (lastCh) lastCh.addEventListener('animationend', () => footH.classList.remove('hop'));
+    const glow = () => { const t = footH.getBoundingClientRect().top; const g = Math.max(0, Math.min(1, (innerHeight - t) / (innerHeight * .4))); footH.style.setProperty('--g', g.toFixed(3));
+      if (g > .3 && !hopped) { hopped = true; footH.classList.add('hop'); } else if (g < .15) hopped = false; };
+    addEventListener('scroll', glow, { passive: true }); addEventListener('resize', glow); glow();
+  }
+  // ---- Lightbox ----
+  const caps = {};
+  document.querySelectorAll('.shot[data-i]').forEach(s => {
+    const html = s.dataset.cap || s.closest('figure')?.querySelector('figcaption')?.innerHTML || '';
+    if (!caps[s.dataset.i]) caps[s.dataset.i] = { html, alt: s.querySelector('img').alt, src: s.querySelector('img').getAttribute('src') };
+  });
+  const order = Object.keys(caps);
+  const lb = document.querySelector('.lb'), lbImg = lb.querySelector('img'), lbCap = lb.querySelector('.cap');
+  let cur = 0, lastFocus = null;
+  const show = (k) => {
+    cur = (k + order.length) % order.length;
+    const id = order[cur];
+    lbImg.src = caps[id].src; lbImg.alt = caps[id].alt; lbCap.innerHTML = caps[id].html;
+  };
+  const open = (id) => { lastFocus = document.activeElement; show(order.indexOf(id)); lb.hidden = false; lb.querySelector('.close').focus(); };
+  const close = () => { lb.hidden = true; lastFocus?.focus(); };
+  document.querySelectorAll('.shot').forEach(s => s.addEventListener('click', () => open(s.dataset.i)));
+  lb.querySelector('.close').addEventListener('click', close);
+  lb.querySelector('.prev').addEventListener('click', () => show(cur - 1));
+  lb.querySelector('.next').addEventListener('click', () => show(cur + 1));
+  lb.addEventListener('click', e => { if (e.target === lb) close(); });
+  addEventListener('keydown', e => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+  });
+})();
+</script>
+
+</body></html>
