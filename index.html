@@ -1,5 +1,6 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>Reyo Otero Portfolio</title>
+<meta name="theme-color" content="#fdf8f3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500&family=Pinyon+Script&family=Jost:wght@300&family=Lexend+Exa:wght@300&family=Michroma&family=Playfair+Display:ital,wght@0,400;1,400&family=Lora:ital,wght@0,400;1,400&family=Josefin+Sans:wght@100..700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Geist:wght@200;300;400;500;600&family=Geist+Mono:wght@200;300;400;500&display=swap">
@@ -504,6 +505,7 @@ nav.top.nav-intro { background: #fff; }
   .mag-note { grid-column: 1 / -1; grid-row: 1; }
 }
 
+.edge-tint { position: fixed; left: 0; right: 0; bottom: 0; height: 6px; z-index: 30; pointer-events: none; background: #fdf8f3; }   /* iPhone Safari tints its bottom bar from this strip; JS keeps it the color of the section behind it */
 @media (prefers-reduced-motion: reduce) { .ticker .track { animation: none; } }
 </style>
 
@@ -988,6 +990,7 @@ nav.top.nav-intro { background: #fff; }
   </div>
 </footer>
 
+<div class="edge-tint" aria-hidden="true"></div>
 <div class="lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden>
   <img alt="">
   <p class="cap"></p>
@@ -1170,6 +1173,13 @@ nav.top.nav-intro { background: #fff; }
       if (g > .3 && !hopped) { hopped = true; footH.classList.add('hop'); } else if (g < .15) hopped = false; };
     addEventListener('scroll', glow, { passive: true }); addEventListener('resize', glow); glow();
   }
+  // ---- Bottom-edge tint: match the strip to whatever section sits at the bottom of the screen ----
+  const tint = document.querySelector('.edge-tint');
+  const bgAt = el => { for (; el && el !== document.documentElement; el = el.parentElement) { const c = getComputedStyle(el).backgroundColor; if (c && c !== 'transparent' && !/rgba\(.*,\s*0\)$/.test(c)) return c; } return '#fdf8f3'; };
+  const retint = () => { tint.style.visibility = 'hidden'; const el = document.elementFromPoint(innerWidth / 2, innerHeight - 8); tint.style.visibility = ''; tint.style.background = bgAt(el); };
+  let tintTick = false;
+  addEventListener('scroll', () => { if (!tintTick) { tintTick = true; requestAnimationFrame(() => { tintTick = false; retint(); }); } }, { passive: true });
+  addEventListener('resize', retint); retint();
   // ---- Lightbox ----
   const caps = {};
   document.querySelectorAll('.shot[data-i]').forEach(s => {
